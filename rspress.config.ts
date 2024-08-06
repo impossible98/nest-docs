@@ -65,6 +65,10 @@ export default defineConfig({
               text: 'Guards',
               link: '/overview/guards',
             },
+            {
+              text: 'Interceptors',
+              link: '/overview/interceptors',
+            },
           ],
         },
       ],
