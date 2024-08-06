@@ -1,16 +1,22 @@
 {
-  "name": "rspress-doc-template",
-  "version": "1.0.0",
+  "name": "nest-docs",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "rspress dev",
     "build": "rspress build",
-    "preview": "rspress preview"
+    "preview": "rspress preview",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write --cache"
   },
   "dependencies": {
     "rspress": "^1.26.1"
   },
   "devDependencies": {
-    "@types/node": "^16"
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@types/node": "^16",
+    "lefthook": "^1.6.12",
+    "prettier": "^3.0.0"
   }
 }
