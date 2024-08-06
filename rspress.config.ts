@@ -53,6 +53,10 @@ export default defineConfig({
               text: 'Middleware',
               link: '/overview/middleware',
             },
+            {
+              text: 'Exception filters',
+              link: '/overview/exception-filters',
+            },
           ],
         },
       ],
