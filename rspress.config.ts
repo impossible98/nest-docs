@@ -69,6 +69,10 @@ export default defineConfig({
               text: 'Interceptors',
               link: '/overview/interceptors',
             },
+            {
+              text: 'Custom decorators',
+              link: '/overview/custom-decorators',
+            },
           ],
         },
       ],
