@@ -75,6 +75,16 @@ export default defineConfig({
             },
           ],
         },
+        {
+          text: 'FUNDAMENTALS',
+          collapsible: false,
+          items: [
+            {
+              text: 'Custom providers',
+              link: '/fundamentals/custom-providers',
+            },
+          ],
+        },
       ],
     },
   },
