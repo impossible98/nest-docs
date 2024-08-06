@@ -17,9 +17,12 @@ export default defineConfig({
       {
         icon: 'github',
         mode: 'link',
-        content: 'https://github.com/web-infra-dev/rspress',
+        content: 'https://github.com/nestjs/nest',
       },
     ],
+    footer: {
+      message: `Copyright © 2020-${new Date().getFullYear()} My Project, Inc. Built with Rspress`,
+    },
     sidebar: {
       '/': [
         {
@@ -45,6 +48,10 @@ export default defineConfig({
             {
               text: 'Modules',
               link: '/overview/modules',
+            },
+            {
+              text: 'Middleware',
+              link: '/overview/middleware',
             },
           ],
         },
