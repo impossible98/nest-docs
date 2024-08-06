@@ -24,7 +24,7 @@ export default defineConfig({
       '/': [
         {
           text: 'INTRODUCTION',
-          link: '/introduction',
+          link: '/index',
         },
         {
           text: 'OVERVIEW',
@@ -33,6 +33,10 @@ export default defineConfig({
             {
               text: 'First steps',
               link: '/overview/first-steps',
+            },
+            {
+              text: 'Controllers',
+              link: '/overview/controllers',
             },
           ],
         },
