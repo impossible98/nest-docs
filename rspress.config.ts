@@ -61,6 +61,10 @@ export default defineConfig({
               text: 'Pipes',
               link: '/overview/pipes',
             },
+            {
+              text: 'Guards',
+              link: '/overview/guards',
+            },
           ],
         },
       ],
