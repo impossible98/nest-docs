@@ -57,6 +57,10 @@ export default defineConfig({
               text: 'Exception filters',
               link: '/overview/exception-filters',
             },
+            {
+              text: 'Pipes',
+              link: '/overview/pipes',
+            },
           ],
         },
       ],
