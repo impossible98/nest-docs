@@ -13,7 +13,7 @@ In both cases, pipes operate on the `arguments` being processed by a [controller
 
 Nest comes with a number of built-in pipes that you can use out-of-the-box. You can also build your own custom pipes. In this chapter, we'll introduce the built-in pipes and show how to bind them to route handlers. We'll then examine several custom-built pipes to show how you can build one from scratch.
 
-::: info HINT
+:::info HINT
 
 Pipes run inside the exceptions zone. This means that when a Pipe throws an exception it is handled by the exceptions layer (global exceptions filter and any [exceptions filters](/exception-filters) that are applied to the current context). Given the above, it should be clear that when an exception is thrown in a Pipe, no controller method is subsequently executed. This gives you a best-practice technique for validating data coming into the application from external sources at the system boundary.
 
@@ -100,7 +100,7 @@ async findOne(@Param('uuid', new ParseUUIDPipe()) uuid: string) {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 When using `ParseUUIDPipe()` you are parsing UUID in version 3, 4 or 5, if you only require a specific version of UUID you can pass a version in the pipe options.
 
@@ -108,9 +108,9 @@ When using `ParseUUIDPipe()` you are parsing UUID in version 3, 4 or 5, if you o
 
 Above we've seen examples of binding the various `Parse*` family of built-in pipes. Binding validation pipes is a little bit different; we'll discuss that in the following section.
 
-::: info HINT
+:::info HINT
 
-Also, see [Validation techniques](/techniques/validation) for extensive examples of validation pipes.
+Also, see [Validation techniques](../techniques/validation) for extensive examples of validation pipes.
 
 :::
 
@@ -131,7 +131,7 @@ export class ValidationPipe implements PipeTransform {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 `PipeTransform<T, R>` is a generic interface that must be implemented by any pipe. The generic interface uses `T` to indicate the type of the input `value`, and `R` to indicate the return type of the `transform()` method.
 
@@ -156,11 +156,11 @@ These properties describe the currently processed argument.
 
 | Property   |                                                                                                                                                                                                      |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`     | Indicates whether the argument is a body `@Body()`, query `@Query()`, param `@Param()`, or a custom parameter (read more [here](https://docs.nestjs.com/custom-decorators)).                         |
+| `type`     | Indicates whether the argument is a body `@Body()`, query `@Query()`, param `@Param()`, or a custom parameter (read more [here](./custom-decorators)).                                               |
 | `metatype` | Provides the metatype of the argument, for example, `String`. Note: the value is `undefined` if you either omit a type declaration in the route handler method signature, or use vanilla JavaScript. |
 | `data`     | The string passed to the decorator, for example `@Body('string')`. It's `undefined` if you leave the decorator parenthesis empty.                                                                    |
 
-::: warning
+:::warning
 
 TypeScript interfaces disappear during transpilation. Thus, if a method parameter's type is declared as an interface instead of a class, the `metatype` value will be `Object`.
 
@@ -273,13 +273,13 @@ async create(@Body() createCatDto: CreateCatDto) {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 The `@UsePipes()` decorator is imported from the `@nestjs/common` package.
 
 :::
 
-::: warning
+:::warning
 
 `zod` library requires the `strictNullChecks` configuration to be enabled in your `tsconfig.json` file.
 
@@ -287,7 +287,7 @@ The `@UsePipes()` decorator is imported from the `@nestjs/common` package.
 
 ## Class validator
 
-::: warning
+:::warning
 
 The techniques in this section require TypeScript and are not available if your app is written using vanilla JavaScript.
 
@@ -318,7 +318,7 @@ export class CreateCatDto {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 Read more about the class-validator decorators [here](https://github.com/typestack/class-validator#usage).
 
@@ -357,13 +357,13 @@ export class ValidationPipe implements PipeTransform<any> {
 }
 ```
 
-::: info HINT
+:::info HINT
 
-As a reminder, you don't have to build a generic validation pipe on your own since the `ValidationPipe` is provided by Nest out-of-the-box. The built-in `ValidationPipe` offers more options than the sample we built in this chapter, which has been kept basic for the sake of illustrating the mechanics of a custom-built pipe. You can find full details, along with lots of examples [here](/techniques/validation).
+As a reminder, you don't have to build a generic validation pipe on your own since the `ValidationPipe` is provided by Nest out-of-the-box. The built-in `ValidationPipe` offers more options than the sample we built in this chapter, which has been kept basic for the sake of illustrating the mechanics of a custom-built pipe. You can find full details, along with lots of examples [here](../techniques/validation).
 
 :::
 
-::: warning NOTICE
+:::warning NOTICE
 
 We used the [class-transformer](https://github.com/typestack/class-transformer) library above which is made by the same author as the **class-validator** library, and as a result, they play very well together.
 
@@ -406,9 +406,9 @@ async function bootstrap() {
 bootstrap();
 ```
 
-::: warning NOTICE
+:::warning NOTICE
 
-In the case of [hybrid apps](https://docs.nestjs.com/faq/hybrid-application) the `useGlobalPipes()` method doesn't set up pipes for gateways and micro services. For "standard" (non-hybrid) microservice apps, `useGlobalPipes()` does mount pipes globally.
+In the case of [hybrid apps](../faq/hybrid-application) the `useGlobalPipes()` method doesn't set up pipes for gateways and micro services. For "standard" (non-hybrid) microservice apps, `useGlobalPipes()` does mount pipes globally.
 
 :::
 
@@ -431,15 +431,15 @@ import { APP_PIPE } from '@nestjs/core';
 export class AppModule {}
 ```
 
-::: info HINT
+:::info HINT
 
-When using this approach to perform dependency injection for the pipe, note that regardless of the module where this construction is employed, the pipe is, in fact, global. Where should this be done? Choose the module where the pipe (`ValidationPipe` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](/fundamentals/custom-providers).
+When using this approach to perform dependency injection for the pipe, note that regardless of the module where this construction is employed, the pipe is, in fact, global. Where should this be done? Choose the module where the pipe (`ValidationPipe` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](../fundamentals/custom-providers).
 
 :::
 
 ## The built-in ValidationPipe
 
-As a reminder, you don't have to build a generic validation pipe on your own since the `ValidationPipe` is provided by Nest out-of-the-box. The built-in `ValidationPipe` offers more options than the sample we built in this chapter, which has been kept basic for the sake of illustrating the mechanics of a custom-built pipe. You can find full details, along with lots of examples [here](/techniques/validation).
+As a reminder, you don't have to build a generic validation pipe on your own since the `ValidationPipe` is provided by Nest out-of-the-box. The built-in `ValidationPipe` offers more options than the sample we built in this chapter, which has been kept basic for the sake of illustrating the mechanics of a custom-built pipe. You can find full details, along with lots of examples [here](../techniques/validation).
 
 ## Transformation use case
 
