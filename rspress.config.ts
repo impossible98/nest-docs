@@ -118,6 +118,10 @@ export default defineConfig({
               text: 'Platform agnosticism',
               link: '/fundamentals/platform-agnosticism',
             },
+            {
+              text: 'Testing',
+              link: '/fundamentals/testing',
+            },
           ],
         },
         {
