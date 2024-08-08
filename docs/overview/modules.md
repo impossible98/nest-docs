@@ -35,7 +35,7 @@ import { CatsService } from './cats.service';
 export class CatsModule {}
 ```
 
-::: info HINT
+:::info HINT
 
 To create a module using the CLI, simply execute the `$ nest g module cats` command.
 
@@ -122,7 +122,7 @@ export class CatsModule {
 }
 ```
 
-However, module classes themselves cannot be injected as providers due to [circular dependency](/fundamentals/circular-dependency) .
+However, module classes themselves cannot be injected as providers due to [circular dependency](../fundamentals/circular-dependency) .
 
 ## Global modules
 
@@ -146,7 +146,7 @@ export class CatsModule {}
 
 The `@Global()` decorator makes the module global-scoped. Global modules should be registered **only once**, generally by the root or core module. In the above example, the `CatsService` provider will be ubiquitous, and modules that wish to inject the service will not need to import the `CatsModule` in their imports array.
 
-::: info HINT
+:::info HINT
 
 Making everything global is not a good design decision. Global modules are available to reduce the amount of necessary boilerplate. The `imports` array is generally the preferred way to make the module's API available to consumers.
 
@@ -154,7 +154,7 @@ Making everything global is not a good design decision. Global modules are avail
 
 ## Dynamic modules
 
-The Nest module system includes a powerful feature called **dynamic modules**. This feature enables you to easily create customizable modules that can register and configure providers dynamically. Dynamic modules are covered extensively [here](/fundamentals/dynamic-modules). In this chapter, we'll give a brief overview to complete the introduction to modules.
+The Nest module system includes a powerful feature called **dynamic modules**. This feature enables you to easily create customizable modules that can register and configure providers dynamically. Dynamic modules are covered extensively [here](../fundamentals/dynamic-modules). In this chapter, we'll give a brief overview to complete the introduction to modules.
 
 Following is an example of a dynamic module definition for a `DatabaseModule`:
 
@@ -178,7 +178,7 @@ export class DatabaseModule {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 The `forRoot()` method may return a dynamic module either synchronously or asynchronously (i.e., via a `Promise`).
 
@@ -197,7 +197,7 @@ If you want to register a dynamic module in the global scope, set the `global` p
 }
 ```
 
-::: warning
+:::warning
 
 As mentioned above, making everything global **is not a good design decision**.
 
@@ -230,10 +230,10 @@ import { User } from './users/entities/user.entity';
 export class AppModule {}
 ```
 
-The [Dynamic modules](/fundamentals/dynamic-modules) chapter covers this topic in greater detail, and includes a [working example](https://github.com/nestjs/nest/tree/master/sample/25-dynamic-modules).
+The [Dynamic modules](../fundamentals/dynamic-modules) chapter covers this topic in greater detail, and includes a [working example](https://github.com/nestjs/nest/tree/master/sample/25-dynamic-modules).
 
-::: info HINT
+:::info HINT
 
-Learn how to build highly customizable dynamic modules with the use of `ConfigurableModuleBuilder` here in [this chapter](/fundamentals/dynamic-modules#configurable-module-builder).
+Learn how to build highly customizable dynamic modules with the use of `ConfigurableModuleBuilder` here in [this chapter](../fundamentals/dynamic-modules#configurable-module-builder).
 
 :::
