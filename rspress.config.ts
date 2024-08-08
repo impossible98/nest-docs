@@ -7,10 +7,10 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'NestJS',
   description: 'About Nest',
-  icon: '/rspress-icon.png',
+  icon: '/favicon.png',
   logo: {
-    light: '/rspress-light-logo.png',
-    dark: '/rspress-dark-logo.png',
+    light: '/nest-light-logo.png',
+    dark: '/nest-dark-logo.png',
   },
   themeConfig: {
     lastUpdated: true,
@@ -101,6 +101,10 @@ export default defineConfig({
             {
               text: 'Module reference',
               link: '/fundamentals/module-ref',
+            },
+            {
+              text: 'Lazy loading modules',
+              link: '/fundamentals/lazy-loading-modules',
             },
           ],
         },
