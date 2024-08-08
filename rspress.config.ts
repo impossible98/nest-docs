@@ -114,6 +114,10 @@ export default defineConfig({
               text: 'Lifecycle Events',
               link: '/fundamentals/lifecycle-events',
             },
+            {
+              text: 'Platform agnosticism',
+              link: '/fundamentals/platform-agnosticism',
+            },
           ],
         },
         {
