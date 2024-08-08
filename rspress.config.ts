@@ -104,6 +104,10 @@ export default defineConfig({
             },
           ],
         },
+        {
+          text: 'STANDALONR APPS',
+          link: '/standalone-applications',
+        },
       ],
     },
   },
