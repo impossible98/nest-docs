@@ -13,7 +13,7 @@ Out of the box, this action is performed by a built-in **global exception filter
 }
 ```
 
-::: info HINT
+:::info HINT
 
 The global exception filter partially supports the `http-errors` library. Basically, any thrown exception containing the `statusCode` and `message` properties will be properly populated and sent back as a response (instead of the default `InternalServerErrorException` for unrecognized exceptions).
 
@@ -50,8 +50,7 @@ When the client calls this endpoint, the response looks like this:
 The `HttpException` constructor takes two required arguments which determine the
 response:
 
-- The `response` argument defines the JSON response body. It can be a `string`
-  or an `object` as described below.
+- The `response` argument defines the JSON response body. It can be a `string` or an `object` as described below.
 - The `status` argument defines the [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
 By default, the JSON response body contains two properties:
@@ -59,8 +58,7 @@ By default, the JSON response body contains two properties:
 - `statusCode`: defaults to the HTTP status code provided in the `status` argument
 - `message`: a short description of the HTTP error based on the `status`
 
-To override just the message portion of the JSON response body, supply a string
-in the `response` argument. To override the entire JSON response body, pass an object in the `response` argument. Nest will serialize the object and return it as the JSON response body.
+To override just the message portion of the JSON response body, supply a string in the `response` argument. To override the entire JSON response body, pass an object in the `response` argument. Nest will serialize the object and return it as the JSON response body.
 
 The second constructor argument - `status` - should be a valid HTTP status code.
 Best practice is to use the `HttpStatus` enum imported from `@nestjs/common`.
@@ -191,13 +189,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 All exception filters should implement the generic `ExceptionFilter<T>` interface. This requires you to provide the `catch(exception: T, host: ArgumentsHost)` method with its indicated signature. `T` indicates the type of the exception.
 
 :::
 
-::: warning
+:::warning
 
 If you are using `@nestjs/platform-fastify` you can use `response.send()` instead of `response.json()`. Don't forget to import the correct types from `fastify`.
 
@@ -207,7 +205,7 @@ The `@Catch(HttpException)` decorator binds the required metadata to the excepti
 
 ## Arguments host
 
-Let's look at the parameters of the `catch()` method. The `exception` parameter is the exception object currently being processed. The `host` parameter is an `ArgumentsHost` object. `ArgumentsHost` is a powerful utility object that we'll examine further in the [execution context chapter](/fundamentals/execution-context). In this code sample, we use it to obtain a reference to the `Request` and `Response` objects that are being passed to the original request handler (in the controller where the exception originates). In this code sample, we've used some helper methods on `ArgumentsHost` to get the desired `Request` and `Response` objects. Learn more about `ArgumentsHost` [here](/fundamentals/execution-context).
+Let's look at the parameters of the `catch()` method. The `exception` parameter is the exception object currently being processed. The `host` parameter is an `ArgumentsHost` object. `ArgumentsHost` is a powerful utility object that we'll examine further in the [execution context chapter](../fundamentals/execution-context). In this code sample, we use it to obtain a reference to the `Request` and `Response` objects that are being passed to the original request handler (in the controller where the exception originates). In this code sample, we've used some helper methods on `ArgumentsHost` to get the desired `Request` and `Response` objects. Learn more about `ArgumentsHost` [here](../fundamentals/execution-context).
 
 ## Binding filters
 
@@ -221,7 +219,7 @@ async create(@Body() createCatDto: CreateCatDto) {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 The `@UseFilters()` decorator is imported from the `@nestjs/common` package.
 
@@ -237,7 +235,7 @@ async create(@Body() createCatDto: CreateCatDto) {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 Prefer applying filters by using classes instead of instances when possible. It reduces **memory usage** since Nest can easily reuse instances of the same class across your entire module.
 
@@ -264,7 +262,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-::: warning
+:::warning
 
 The `useGlobalFilters()` method does not set up filters for gateways or hybrid applications.
 
@@ -287,9 +285,9 @@ import { APP_FILTER } from '@nestjs/core';
 export class AppModule {}
 ```
 
-::: info HINT
+:::info HINT
 
-When using this approach to perform dependency injection for the filter, note that regardless of the module where this construction is employed, the filter is, in fact, global. Where should this be done? Choose the module where the filter (`HttpExceptionFilter` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](/fundamentals/custom-providers).
+When using this approach to perform dependency injection for the filter, note that regardless of the module where this construction is employed, the filter is, in fact, global. Where should this be done? Choose the module where the filter (`HttpExceptionFilter` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](../fundamentals/custom-providers).
 
 :::
 
@@ -299,7 +297,7 @@ You can add as many filters with this technique as needed; simply add each to th
 
 In order to catch **every** unhandled exception (regardless of the exception type), leave the `@Catch()` decorator's parameter list empty, e.g., `@Catch()`.
 
-In the example below we have a code that is platform-agnostic because it uses the [HTTP adapter](./faq/http-adapter) to deliver the response, and doesn't use any of the platform-specific objects (`Request` and `Response`) directly:
+In the example below we have a code that is platform-agnostic because it uses the [HTTP adapter](../faq/http-adapter) to deliver the response, and doesn't use any of the platform-specific objects (`Request` and `Response`) directly:
 
 ```ts
 import {
@@ -338,7 +336,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
 }
 ```
 
-::: warning
+:::warning
 
 When combining an exception filter that catches everything with a filter that is bound to a specific type, the "Catch anything" filter should be declared first to allow the specific filter to correctly handle the bound type.
 
@@ -362,7 +360,7 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
 }
 ```
 
-::: warning
+:::warning
 
 Method-scoped and Controller-scoped filters that extend the `BaseExceptionFilter` should not be instantiated with `new`. Instead, let the framework instantiate them automatically.
 
