@@ -98,6 +98,10 @@ export default defineConfig({
               text: 'Circular dependency',
               link: '/fundamentals/circular-dependency',
             },
+            {
+              text: 'Module reference',
+              link: '/fundamentals/module-ref',
+            },
           ],
         },
         {
