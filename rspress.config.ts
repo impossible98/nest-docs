@@ -110,6 +110,10 @@ export default defineConfig({
               text: 'Execution context',
               link: '/fundamentals/execution-context',
             },
+            {
+              text: 'Lifecycle Events',
+              link: '/fundamentals/lifecycle-events',
+            },
           ],
         },
         {
