@@ -88,6 +88,10 @@ export default defineConfig({
               text: 'Asynchronous providers',
               link: '/fundamentals/async-providers',
             },
+            {
+              text: 'Dynamic modules',
+              link: '/fundamentals/dynamic-modules',
+            },
           ],
         },
         {
