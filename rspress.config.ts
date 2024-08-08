@@ -32,7 +32,6 @@ export default defineConfig({
         },
         {
           text: 'OVERVIEW',
-          collapsible: false,
           items: [
             {
               text: 'First steps',
@@ -78,7 +77,6 @@ export default defineConfig({
         },
         {
           text: 'FUNDAMENTALS',
-          collapsible: false,
           items: [
             {
               text: 'Custom providers',
@@ -96,11 +94,14 @@ export default defineConfig({
               text: 'Injection scopes',
               link: '/fundamentals/injection-scopes',
             },
+            {
+              text: 'Circular dependency',
+              link: '/fundamentals/circular-dependency',
+            },
           ],
         },
         {
           text: 'TECHNIQUES',
-          collapsible: false,
           items: [
             {
               text: 'Configuration',
