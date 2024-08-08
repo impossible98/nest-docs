@@ -4,11 +4,11 @@ A guard is a class annotated with the `@Injectable()` decorator, which implement
 
 ![Photo](/imgs/guards.webp)
 
-Guards have a **single responsibility**. They determine whether a given request will be handled by the route handler or not, depending on certain conditions (like permissions, roles, ACLs, etc.) present at run-time. This is often referred to as **authorization**. Authorization (and its cousin, **authentication**, with which it usually collaborates) has typically been handled by [middleware](/middleware) in traditional Express applications. Middleware is a fine choice for authentication, since things like token validation and attaching properties to the `request` object are not strongly connected with a particular route context (and its metadata).
+Guards have a **single responsibility**. They determine whether a given request will be handled by the route handler or not, depending on certain conditions (like permissions, roles, ACLs, etc.) present at run-time. This is often referred to as **authorization**. Authorization (and its cousin, **authentication**, with which it usually collaborates) has typically been handled by [middleware](./middleware) in traditional Express applications. Middleware is a fine choice for authentication, since things like token validation and attaching properties to the `request` object are not strongly connected with a particular route context (and its metadata).
 
 But middleware, by its nature, is dumb. It doesn't know which handler will be executed after calling the `next()` function. On the other hand, **Guards** have access to the `ExecutionContext` instance, and thus know exactly what's going to be executed next. They're designed, much like exception filters, pipes, and interceptors, to let you interpose processing logic at exactly the right point in the request/response cycle, and to do so declaratively. This helps keep your code DRY and declarative.
 
-::: info HINT
+:::info HINT
 
 Guards are executed **after** all middleware, but **before** any interceptor or pipe.
 
@@ -33,9 +33,9 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
-::: info HINT
+:::info HINT
 
-If you are looking for a real-world example on how to implement an authentication mechanism in your application, visit [this chapter](/security/authentication). Likewise, for more sophisticated authorization example, check [this page](/security/authorization).
+If you are looking for a real-world example on how to implement an authentication mechanism in your application, visit [this chapter](../security/authentication). Likewise, for more sophisticated authorization example, check [this page](../security/authorization).
 
 :::
 
@@ -48,9 +48,9 @@ Every guard must implement a `canActivate()` function. This function should retu
 
 ## Execution context
 
-The `canActivate()` function takes a single argument, the `ExecutionContext` instance. The `ExecutionContext` inherits from `ArgumentsHost`. We saw `ArgumentsHost` previously in the exception filters chapter. In the sample above, we are just using the same helper methods defined on `ArgumentsHost` that we used earlier, to get a reference to the `Request` object. You can refer back to the **Arguments host** section of the [exception filters](https://docs.nestjs.com/exception-filters#arguments-host) chapter for more on this topic.
+The `canActivate()` function takes a single argument, the `ExecutionContext` instance. The `ExecutionContext` inherits from `ArgumentsHost`. We saw `ArgumentsHost` previously in the exception filters chapter. In the sample above, we are just using the same helper methods defined on `ArgumentsHost` that we used earlier, to get a reference to the `Request` object. You can refer back to the **Arguments host** section of the [exception filters](./exception-filters#arguments-host) chapter for more on this topic.
 
-By extending `ArgumentsHost`, `ExecutionContext` also adds several new helper methods that provide additional details about the current execution process. These details can be helpful in building more generic guards that can work across a broad set of controllers, methods, and execution contexts. Learn more about `ExecutionContext` [here](/fundamentals/execution-context).
+By extending `ArgumentsHost`, `ExecutionContext` also adds several new helper methods that provide additional details about the current execution process. These details can be helpful in building more generic guards that can work across a broad set of controllers, methods, and execution contexts. Learn more about `ExecutionContext` [here](../fundamentals/execution-context).
 
 ## Role-based authentication
 
@@ -80,7 +80,7 @@ Like pipes and exception filters, guards can be **controller-scoped**, method-sc
 export class CatsController {}
 ```
 
-::: info HINT
+:::info HINT
 
 The `@UseGuards()` decorator is imported from the `@nestjs/common` package.
 
@@ -103,9 +103,9 @@ const app = await NestFactory.create(AppModule);
 app.useGlobalGuards(new RolesGuard());
 ```
 
-::: warning NOTICE
+:::warning NOTICE
 
-In the case of hybrid apps the `useGlobalGuards()` method doesn't set up guards for gateways and micro services by default (see [Hybrid application](/faq/hybrid-application) for information on how to change this behavior). For "standard" (non-hybrid) microservice apps, `useGlobalGuards()` does mount the guards globally.
+In the case of hybrid apps the `useGlobalGuards()` method doesn't set up guards for gateways and micro services by default (see [Hybrid application](../faq/hybrid-application) for information on how to change this behavior). For "standard" (non-hybrid) microservice apps, `useGlobalGuards()` does mount the guards globally.
 
 :::
 
@@ -126,9 +126,9 @@ import { APP_GUARD } from '@nestjs/core';
 export class AppModule {}
 ```
 
-::: info HINT
+:::info HINT
 
-When using this approach to perform dependency injection for the guard, note that regardless of the module where this construction is employed, the guard is, in fact, global. Where should this be done? Choose the module where the guard (`RolesGuard` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](https://docs.nestjs.com/fundamentals/custom-providers).
+When using this approach to perform dependency injection for the guard, note that regardless of the module where this construction is employed, the guard is, in fact, global. Where should this be done? Choose the module where the guard (`RolesGuard` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](../fundamentals/custom-providers).
 
 :::
 
@@ -136,7 +136,7 @@ When using this approach to perform dependency injection for the guard, note tha
 
 Our `RolesGuard` is working, but it's not very smart yet. We're not yet taking advantage of the most important guard feature - the [execution context](/fundamentals/execution-context). It doesn't yet know about roles, or which roles are allowed for each handler. The `CatsController`, for example, could have different permission schemes for different routes. Some might be available only for an admin user, and others could be open for everyone. How can we match roles to routes in a flexible and reusable way?
 
-This is where **custom metadata** comes into play (learn more [here](https://docs.nestjs.com/fundamentals/execution-context#reflection-and-metadata)). Nest provides the ability to attach custom **metadata** to route handlers through either decorators created via `Reflector#createDecorator` static method, or the built-in `@SetMetadata()` decorator.
+This is where **custom metadata** comes into play (learn more [here](../fundamentals/execution-context#reflection-and-metadata)). Nest provides the ability to attach custom **metadata** to route handlers through either decorators created via `Reflector#createDecorator` static method, or the built-in `@SetMetadata()` decorator.
 
 For example, let's create a `@Roles()` decorator using the `Reflector#createDecorator` method that will attach the metadata to the handler. `Reflector` is provided out of the box by the framework and exposed from the `@nestjs/core` package.
 
@@ -160,7 +160,7 @@ async create(@Body() createCatDto: CreateCatDto) {
 
 Here we've attached the `Roles` decorator metadata to the `create()` method, indicating that only users with the `admin` role should be allowed to access this route.
 
-Alernatively, instead of using the `Reflector#createDecorator` method, we could use the built-in `@SetMetadata()` decorator. Learn more about [here](/fundamentals/execution-context#low-level-approach).
+Alernatively, instead of using the `Reflector#createDecorator` method, we could use the built-in `@SetMetadata()` decorator. Learn more about [here](../fundamentals/execution-context#low-level-approach).
 
 ## Putting it all together
 
@@ -187,23 +187,23 @@ export class RolesGuard implements CanActivate {
 }
 ```
 
-::: info HINT
+:::info HINT
 
-In the node.js world, it's common practice to attach the authorized user to the `request` object. Thus, in our sample code above, we are assuming that `request.user` contains the user instance and allowed roles. In your app, you will probably make that association in your custom **authentication guard** (or middleware). Check [this chapter](/security/authentication) for more information on this topic.
+In the node.js world, it's common practice to attach the authorized user to the `request` object. Thus, in our sample code above, we are assuming that `request.user` contains the user instance and allowed roles. In your app, you will probably make that association in your custom **authentication guard** (or middleware). Check [this chapter](../security/authentication) for more information on this topic.
 
 :::
 
-::: warning
+:::warning
 
 The logic inside the `matchRoles()` function can be as simple or sophisticated as needed. The main point of this example is to show how guards fit into the request/response cycle.
 
 :::
 
-Refer to the [Reflection and metadata](https://docs.nestjs.com/fundamentals/execution-context#reflection-and-metadata) section of the **Execution context** chapter for more details on utilizing `Reflector` in a context-sensitive way.
+Refer to the [Reflection and metadata](../fundamentals/execution-context#reflection-and-metadata) section of the **Execution context** chapter for more details on utilizing `Reflector` in a context-sensitive way.
 
 When a user with insufficient privileges requests an endpoint, Nest automatically returns the following response:
 
-```ts
+```json
 {
   "statusCode": 403,
   "message": "Forbidden resource",
@@ -217,10 +217,10 @@ Note that behind the scenes, when a guard returns `false`, the framework throws 
 throw new UnauthorizedException();
 ```
 
-Any exception thrown by a guard will be handled by the [exceptions layer](/exception-filters) (global exceptions filter and any exceptions filters that are applied to the current context).
+Any exception thrown by a guard will be handled by the [exceptions layer](./exception-filters) (global exceptions filter and any exceptions filters that are applied to the current context).
 
 ::: info HINT
 
-If you are looking for a real-world example on how to implement authorization, check [this chapter](/security/authorization).
+If you are looking for a real-world example on how to implement authorization, check [this chapter](../security/authorization).
 
 :::
