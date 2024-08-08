@@ -16,9 +16,9 @@ Nest middleware are, by default, equivalent to [express](https://expressjs.com/e
 
 You implement custom Nest middleware in either a function, or in a class with an `@Injectable()` decorator. The class should implement the `NestMiddleware` interface, while the function does not have any special requirements. Let's start by implementing a simple middleware feature using the class method.
 
-::: warning
+:::warning
 
-`Express` and `fastify` handle middleware differently and provide different method signatures, read more [here](/techniques/performance#middleware).
+`Express` and `fastify` handle middleware differently and provide different method signatures, read more [here](../techniques/performance#middleware).
 
 :::
 
@@ -82,13 +82,13 @@ export class AppModule implements NestModule {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 The `configure()` method can be made asynchronous using `async/await` (e.g., you can `await` completion of an asynchronous operation inside the `configure()` method body).
 
 :::
 
-::: warning
+:::warning
 
 When using the `express` adapter, the NestJS app will register `json` and `urlencoded` from the package `body-parser` by default. This means if you want to customize that middleware via the `MiddlewareConsumer`, you need to turn off the global middleware by setting the `bodyParser` flag to `false` when creating the application with `NestFactory.create()`.
 
@@ -104,7 +104,7 @@ forRoutes({ path: 'ab*cd', method: RequestMethod.ALL });
 
 The `'ab*cd'` route path will match `abcd`, `ab_cd`, `abecd`, and so on. The characters `?`, `+`, `*`, and `()` may be used in a route path, and are subsets of their regular expression counterparts. The hyphen ( `-`) and the dot (`.`) are interpreted literally by string-based paths.
 
-::: warning
+:::warning
 
 The `fastify` package uses the latest version of the `path-to-regexp` package, which no longer supports wildcard asterisks `*`. Instead, you must use parameters (e.g., `(.*)`, `:splat*`).
 
@@ -130,9 +130,9 @@ export class AppModule implements NestModule {
 }
 ```
 
-::: info HINT
+:::info HINT
 
-The `apply()` method may either take a single middleware, or multiple arguments to specify [multiple middlewares](https://docs.nestjs.com/middleware#multiple-middleware).
+The `apply()` method may either take a single middleware, or multiple arguments to specify [multiple middlewares](#multiple-middleware).
 
 :::
 
@@ -151,7 +151,7 @@ consumer
   .forRoutes(CatsController);
 ```
 
-::: info HINT
+:::info HINT
 
 The `exclude()` method supports wildcard parameters using the [path-to-regexp](https://github.com/pillarjs/path-to-regexp#parameters) package.
 
@@ -178,7 +178,7 @@ And use it within the `AppModule`:
 consumer.apply(logger).forRoutes(CatsController);
 ```
 
-::: info HINT
+:::info HINT
 
 Consider using the simpler **functional middleware** alternative any time your middleware doesn't need any dependencies.
 
@@ -202,8 +202,8 @@ app.use(logger);
 await app.listen(3000);
 ```
 
-::: info HINT
+:::info HINT
 
-Accessing the DI container in a global middleware is not possible. You can use a [functional middleware](middleware#functional-middleware) instead when using `app.use()`. Alternatively, you can use a class middleware and consume it with `.forRoutes('*')` within the `AppModule` (or any other module).
+Accessing the DI container in a global middleware is not possible. You can use a [functional middleware](#functional-middleware) instead when using `app.use()`. Alternatively, you can use a class middleware and consume it with `.forRoutes('*')` within the `AppModule` (or any other module).
 
 :::
