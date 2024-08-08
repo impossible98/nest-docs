@@ -53,7 +53,7 @@ async findOne(@User() user: UserEntity) {
 
 ## Passing data
 
-When the behavior of your decorator depends on some conditions, you can use the `data` parameter to pass an argument to the decorator's factory function. One use case for this is a custom decorator that extracts properties from the request object by key. Let's assume, for example, that our <a href="techniques/authentication#implementing-passport-strategies">authentication layer</a> validates requests and attaches a user entity to the request object. The user entity for an authenticated request might look like:
+When the behavior of your decorator depends on some conditions, you can use the `data` parameter to pass an argument to the decorator's factory function. One use case for this is a custom decorator that extracts properties from the request object by key. Let's assume, for example, that our [authentication layer](../techniques/authentication#implementing-passport-strategies) validates requests and attaches a user entity to the request object. The user entity for an authenticated request might look like:
 
 ```json
 {
@@ -91,7 +91,7 @@ async findOne(@User('firstName') firstName: string) {
 
 You can use this same decorator with different keys to access different properties. If the `user` object is deep or complex, this can make for easier and more readable request handler implementations.
 
-::: info HINT
+:::info HINT
 
 For TypeScript users, note that `createParamDecorator<T>()` is a generic. This means you can explicitly enforce type safety, for example `createParamDecorator<string>((data, ctx) => ...)`. Alternatively, specify a parameter type in the factory function, for example `createParamDecorator((data: string, ctx) => ...)`. If you omit both, the type for `data` will be `any`.
 
@@ -111,7 +111,7 @@ async findOne(
 }
 ```
 
-::: info HINT
+:::info HINT
 
 Note that `validateCustomDecorators` option must be set to true. `ValidationPipe` does not validate arguments annotated with the custom decorators by default.
 
@@ -144,7 +144,7 @@ findAllUsers() {}
 
 This has the effect of applying all four decorators with a single declaration.
 
-::: warning
+:::warning
 
 The `@ApiHideProperty()` decorator from the `@nestjs/swagger` package is not composable and won't work properly with the `applyDecorators` function.
 
