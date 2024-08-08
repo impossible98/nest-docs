@@ -14,11 +14,11 @@ Interceptors have a set of useful capabilities which are inspired by the [Aspect
 
 ## Basics
 
-Each interceptor implements the `intercept()` method, which takes two arguments. The first one is the `ExecutionContext` instance (exactly the same object as for [guards](/guards)). The `ExecutionContext` inherits from `ArgumentsHost`. We saw `ArgumentsHost` before in the exception filters chapter. There, we saw that it's a wrapper around arguments that have been passed to the original handler, and contains different arguments arrays based on the type of the application. You can refer back to the [exception filters](https://docs.nestjs.com/exception-filters#arguments-host) for more on this topic.
+Each interceptor implements the `intercept()` method, which takes two arguments. The first one is the `ExecutionContext` instance (exactly the same object as for [guards](./guards)). The `ExecutionContext` inherits from `ArgumentsHost`. We saw `ArgumentsHost` before in the exception filters chapter. There, we saw that it's a wrapper around arguments that have been passed to the original handler, and contains different arguments arrays based on the type of the application. You can refer back to the [exception filters](./exception-filters#arguments-host) for more on this topic.
 
 ## Execution context
 
-By extending `ArgumentsHost`, `ExecutionContext` also adds several new helper methods that provide additional details about the current execution process. These details can be helpful in building more generic interceptors that can work across a broad set of controllers, methods, and execution contexts. Learn more about `ExecutionContext` [here](/fundamentals/execution-context).
+By extending `ArgumentsHost`, `ExecutionContext` also adds several new helper methods that provide additional details about the current execution process. These details can be helpful in building more generic interceptors that can work across a broad set of controllers, methods, and execution contexts. Learn more about `ExecutionContext` [here](../fundamentals/execution-context).
 
 ## Call handler
 
@@ -55,13 +55,13 @@ export class LoggingInterceptor implements NestInterceptor {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 The `NestInterceptor<T, R>` is a generic interface in which `T` indicates the type of an `Observable<T>` (supporting the response stream), and `R` is the type of the value wrapped by `Observable<R>`.
 
 :::
 
-::: warning NOTICE
+:::warning NOTICE
 
 Interceptors, like controllers, providers, guards, and so on, can **inject dependencies** through their `constructor`.
 
@@ -71,14 +71,14 @@ Since `handle()` returns an RxJS `Observable`, we have a wide choice of operator
 
 ## Binding interceptors
 
-In order to set up the interceptor, we use the `@UseInterceptors()` decorator imported from the `@nestjs/common` package. Like [pipes](/pipes) and [guards](/guards), interceptors can be controller-scoped, method-scoped, or global-scoped.
+In order to set up the interceptor, we use the `@UseInterceptors()` decorator imported from the `@nestjs/common` package. Like [pipes](./pipes) and [guards](./guards), interceptors can be controller-scoped, method-scoped, or global-scoped.
 
 ```ts title="cats.controller.ts"
 @UseInterceptors(LoggingInterceptor)
 export class CatsController {}
 ```
 
-::: info HINT
+:::info HINT
 
 The `@UseInterceptors()` decorator is imported from the `@nestjs/common` package.
 
@@ -124,9 +124,9 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 export class AppModule {}
 ```
 
-::: info HINT
+:::info HINT
 
-When using this approach to perform dependency injection for the interceptor, note that regardless of the module where this construction is employed, the interceptor is, in fact, global. Where should this be done? Choose the module where the interceptor (`LoggingInterceptor` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](https://docs.nestjs.com/fundamentals/custom-providers).
+When using this approach to perform dependency injection for the interceptor, note that regardless of the module where this construction is employed, the interceptor is, in fact, global. Where should this be done? Choose the module where the interceptor (`LoggingInterceptor` in the example above) is defined. Also, `useClass` is not the only way of dealing with custom provider registration. Learn more [here](../fundamentals/custom-providers).
 
 :::
 
@@ -134,7 +134,7 @@ When using this approach to perform dependency injection for the interceptor, no
 
 We already know that `handle()` returns an `Observable`. The stream contains the value **returned** from the route handler, and thus we can easily mutate it using RxJS's `map()` operator.
 
-::: warning
+:::warning
 
 The response mapping feature doesn't work with the library-specific response strategy (using the `@Res()` object directly is forbidden).
 
@@ -169,7 +169,7 @@ export class TransformInterceptor<T>
 }
 ```
 
-::: info HINT
+:::info HINT
 
 Nest interceptors work with both synchronous and asynchronous `intercept()` methods. You can simply switch the method to `async` if necessary.
 
@@ -183,8 +183,7 @@ With the above construction, when someone calls the `GET /cats` endpoint, the re
 }
 ```
 
-Interceptors have great value in creating re-usable solutions to requirements that occur across an entire application.
-For example, imagine we need to transform each occurrence of a `null` value to an empty string `''`. We can do it using one line of code and bind the interceptor globally so that it will automatically be used by each registered handler.
+Interceptors have great value in creating re-usable solutions to requirements that occur across an entire application. For example, imagine we need to transform each occurrence of a `null` value to an empty string `''`. We can do it using one line of code and bind the interceptor globally so that it will automatically be used by each registered handler.
 
 ```ts
 import {
@@ -254,7 +253,7 @@ export class CacheInterceptor implements NestInterceptor {
 }
 ```
 
-Our `CacheInterceptor` has a hardcoded `isCached` variable and a hardcoded response `[]` as well. The key point to note is that we return a new stream here, created by the RxJS `of()` operator, therefore the route handler **won't be called** at all. When someone calls an endpoint that makes use of `CacheInterceptor`, the response (a hardcoded, empty array) will be returned immediately. In order to create a generic solution, you can take advantage of `Reflector` and create a custom decorator. The `Reflector` is well described in the [guards](/guards) chapter.
+Our `CacheInterceptor` has a hardcoded `isCached` variable and a hardcoded response `[]` as well. The key point to note is that we return a new stream here, created by the RxJS `of()` operator, therefore the route handler **won't be called** at all. When someone calls an endpoint that makes use of `CacheInterceptor`, the response (a hardcoded, empty array) will be returned immediately. In order to create a generic solution, you can take advantage of `Reflector` and create a custom decorator. The `Reflector` is well described in the [guards](./guards) chapter.
 
 ## More operators
 
