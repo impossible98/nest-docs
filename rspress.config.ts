@@ -97,6 +97,10 @@ export default defineConfig({
               text: 'Configuration',
               link: '/techniques/configuration',
             },
+            {
+              text: 'Database',
+              link: '/techniques/database',
+            },
           ],
         },
       ],
