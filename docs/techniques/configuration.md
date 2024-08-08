@@ -16,13 +16,13 @@ To begin using it, we first install the required dependency.
 $ npm i --save @nestjs/config
 ```
 
-::: info HINT
+:::info HINT
 
 The `@nestjs/config` package internally uses [dotenv](https://github.com/motdotla/dotenv).
 
 :::
 
-::: warning Note
+:::warning Note
 
 `@nestjs/config` requires TypeScript 4.1 or later.
 
@@ -83,7 +83,7 @@ ConfigModule.forRoot({
 
 ## Use module globally
 
-When you want to use `ConfigModule` in other modules, you'll need to import it (as is standard with any Nest module). Alternatively, declare it as a [global module](https://docs.nestjs.com/modules#global-modules) by setting the options object's `isGlobal` property to `true`, as shown below. In that case, you will not need to import `ConfigModule` in other modules once it's been loaded in the root module (e.g., `AppModule`).
+When you want to use `ConfigModule` in other modules, you'll need to import it (as is standard with any Nest module). Alternatively, declare it as a [global module](../overview/modules#global-modules) by setting the options object's `isGlobal` property to `true`, as shown below. In that case, you will not need to import `ConfigModule` in other modules once it's been loaded in the root module (e.g., `AppModule`).
 
 ```ts
 ConfigModule.forRoot({
@@ -95,7 +95,7 @@ ConfigModule.forRoot({
 
 For more complex projects, you may utilize custom configuration files to return nested configuration objects. This allows you to group related configuration settings by function (e.g., database-related settings), and to store related settings in individual files to help manage them independently.
 
-A custom configuration file exports a factory function that returns a configuration object. The configuration object can be any arbitrarily nested plain JavaScript object. The `process.env` object will contain the fully resolved environment variable key/value pairs (with `.env` file and externally defined variables resolved and merged as described <a href="techniques/configuration#getting-started">above</a>) [above](#getting-started). Since you control the returned configuration object, you can add any required logic to cast values to an appropriate type, set default values, etc. For example:
+A custom configuration file exports a factory function that returns a configuration object. The configuration object can be any arbitrarily nested plain JavaScript object. The `process.env` object will contain the fully resolved environment variable key/value pairs (with `.env` file and externally defined variables resolved and merged as described [above](#getting-started)) [above](#getting-started). Since you control the returned configuration object, you can add any required logic to cast values to an appropriate type, set default values, etc. For example:
 
 ```ts title="config/configuration.ts"
 export default () => ({
@@ -122,7 +122,7 @@ import configuration from './config/configuration';
 export class AppModule {}
 ```
 
-::: info NOTICE
+:::info NOTICE
 
 The value assigned to the `load` property is an array, allowing you to load multiple configuration files (e.g. `load: [databaseConfig, authConfig]`)
 
@@ -168,9 +168,9 @@ export default () => {
 };
 ```
 
-::: warning NOTE
+:::warning NOTE
 
-Nest CLI does not automatically move your "assets" (non-TS files) to the `dist` folder during the build process. To make sure that your YAML files are copied, you have to specify this in the `compilerOptions#assets` object in the `nest-cli.json` file. As an example, if the `config` folder is at the same level as the `src` folder, add `compilerOptions#assets` with the value `"assets": [{{ '{' }}"include": "../config/*.yaml", "outDir": "./dist/config"{{ '}' }}]`. Read more [here](/cli/monorepo#assets).
+Nest CLI does not automatically move your "assets" (non-TS files) to the `dist` folder during the build process. To make sure that your YAML files are copied, you have to specify this in the `compilerOptions#assets` object in the `nest-cli.json` file. As an example, if the `config` folder is at the same level as the `src` folder, add `compilerOptions#assets` with the value `"assets": [{{ '{' }}"include": "../config/*.yaml", "outDir": "./dist/config"{{ '}' }}]`. Read more [here](../cli/monorepo#assets).
 
 :::
 
@@ -191,7 +191,7 @@ Then we can inject it using standard constructor injection:
 constructor(private configService: ConfigService) {}
 ```
 
-::: info HINT
+:::info HINT
 
 The `ConfigService` is imported from the `@nestjs/config` package.
 
@@ -272,7 +272,7 @@ constructor(private configService: ConfigService<{ PORT: number }, true>) {
 
 ## Configuration namespaces
 
-The `ConfigModule` allows you to define and load multiple custom configuration files, as shown in <a href="techniques/configuration#custom-configuration-files">Custom configuration files</a> above. You can manage complex configuration object hierarchies with nested configuration objects as shown in that section. Alternatively, you can return a "namespaced" configuration object with the `registerAs()` function as follows:
+The `ConfigModule` allows you to define and load multiple custom configuration files, as shown in [Custom configuration files](#custom-configuration-files) above. You can manage complex configuration object hierarchies with nested configuration objects as shown in that section. Alternatively, you can return a "namespaced" configuration object with the `registerAs()` function as follows:
 
 ```ts title="config/database.config.ts"
 export default registerAs('database', () => ({
@@ -281,9 +281,9 @@ export default registerAs('database', () => ({
 }));
 ```
 
-As with custom configuration files, inside your `registerAs()` factory function, the `process.env` object will contain the fully resolved environment variable key/value pairs (with `.env` file and externally defined variables resolved and merged as described <a href="techniques/configuration#getting-started">above</a>).
+As with custom configuration files, inside your `registerAs()` factory function, the `process.env` object will contain the fully resolved environment variable key/value pairs (with `.env` file and externally defined variables resolved and merged as described [above](#getting-started)).
 
-::: info HINT
+:::info HINT
 
 The `registerAs` function is exported from the `@nestjs/config` package.
 
@@ -319,7 +319,7 @@ constructor(
 ) {}
 ```
 
-::: info HINT
+:::info HINT
 
 The `ConfigType` is exported from the `@nestjs/config` package.
 
@@ -348,7 +348,7 @@ import databaseConfig from './config/database.config';
 export class DatabaseModule {}
 ```
 
-::: info WARNING
+:::info WARNING
 
 In some circumstances, you may need to access properties loaded via partial registration using the `onModuleInit()` hook, rather than in a constructor. This is because the `forFeature()` method is run during module initialization, and the order of module initialization is indeterminate. If you access values loaded this way by another module, in a constructor, the module that the configuration depends upon may not yet have initialized. The `onModuleInit()` method runs only after all modules it depends upon have been initialized, so this technique is safe.
 
@@ -583,7 +583,7 @@ SUPPORT_EMAIL=support@${APP_URL}
 
 With this construction, the variable `SUPPORT_EMAIL` resolves to `'support@mywebsite.com'`. Note the use of the `${{ '{' }}...{{ '}' }}` syntax to trigger resolving the value of the variable `APP_URL` inside the definition of `SUPPORT_EMAIL`.
 
-::: info HINT
+:::info HINT
 
 For this feature, `@nestjs/config` package internally uses [dotenv-expand](https://github.com/motdotla/dotenv-expand).
 
