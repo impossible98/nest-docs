@@ -106,6 +106,10 @@ export default defineConfig({
               text: 'Lazy loading modules',
               link: '/fundamentals/lazy-loading-modules',
             },
+            {
+              text: 'Execution context',
+              link: '/fundamentals/execution-context',
+            },
           ],
         },
         {
