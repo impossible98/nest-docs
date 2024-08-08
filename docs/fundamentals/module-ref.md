@@ -124,7 +124,7 @@ export class CatsService {
 
 :::info HINT
 
-Learn more about the request provider [here](https://docs.nestjs.com/fundamentals/injection-scopes#request-provider).
+Learn more about the request provider [here](./injection-scopes#request-provider).
 
 :::
 
