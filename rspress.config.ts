@@ -135,6 +135,10 @@ export default defineConfig({
               text: 'Database',
               link: '/techniques/database',
             },
+            {
+              text: 'Mongo',
+              link: '/techniques/mongodb',
+            },
           ],
         },
         {
