@@ -8,9 +8,9 @@ A controller's purpose is to receive specific requests for the application. The 
 
 In order to create a basic controller, we use classes and **decorators**. Decorators associate classes with required metadata and enable Nest to create a routing map (tie requests to the corresponding controllers).
 
-::: info HINT
+:::info HINT
 
-For quickly creating a CRUD controller with the [validation](https://docs.nestjs.com/techniques/validation) built-in, you may use the CLI's [CRUD generator](https://docs.nestjs.com/recipes/crud-generator#crud-generator): `nest g resource [name]`.
+For quickly creating a CRUD controller with the [validation](../techniques/validation) built-in, you may use the CLI's [CRUD generator](../recipes/crud-generator#crud-generator): `nest g resource [name]`.
 
 :::
 
@@ -30,7 +30,7 @@ export class CatsController {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 To create a controller using the CLI, simply execute the `$ nest g controller [name]` command.
 
@@ -42,12 +42,12 @@ In our example above, when a GET request is made to this endpoint, Nest routes t
 
 This method will return a 200 status code and the associated response, which in this case is just a string. Why does that happen? To explain, we'll first introduce the concept that Nest employs two **different** options for manipulating responses:
 
-| Option                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Standard (recommended) | Using this built-in method, when a request handler returns a JavaScript object or array, it will **automatically** be serialized to JSON. When it returns a JavaScript primitive type (e.g., `string`, `number`, `boolean`), however, Nest will send just the value without attempting to serialize it. This makes response handling simple: just return the value, and Nest takes care of the rest. Furthermore, the response's **status code** is always 200 by default, except for POST requests which use 201. We can easily change this behavior by adding the `@HttpCode(...)` decorator at a handler-level (see [Status codes](https://docs.nestjs.com/controllers#status-code)). |
-| Library-specific       | We can use the library-specific (e.g., Express) [response object](https://expressjs.com/en/api.html#res), which can be injected using the `@Res()` decorator in the method handler signature (e.g., `findAll(@Res() response)`). With this approach, you have the ability to use the native response handling methods exposed by that object. For example, with Express, you can construct responses using code like `response.status(200).send()`.                                                                                                                                                                                                                                      |
+| Option                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Standard (recommended) | Using this built-in method, when a request handler returns a JavaScript object or array, it will **automatically** be serialized to JSON. When it returns a JavaScript primitive type (e.g., `string`, `number`, `boolean`), however, Nest will send just the value without attempting to serialize it. This makes response handling simple: just return the value, and Nest takes care of the rest. Furthermore, the response's **status code** is always 200 by default, except for POST requests which use 201. We can easily change this behavior by adding the `@HttpCode(...)` decorator at a handler-level (see [Status codes](#status-code)). |
+| Library-specific       | We can use the library-specific (e.g., Express) [response object](https://expressjs.com/en/api.html#res), which can be injected using the `@Res()` decorator in the method handler signature (e.g., `findAll(@Res() response)`). With this approach, you have the ability to use the native response handling methods exposed by that object. For example, with Express, you can construct responses using code like `response.status(200).send()`.                                                                                                                                                                                                   |
 
-::: warning
+:::warning
 
 Nest detects when the handler is using either `@Res()` or `@Next()`, indicating you have chosen the library-specific option. If both approaches are used at the same time, the Standard approach is **automatically disabled** for this single route and will no longer work as expected. To use both approaches at the same time (for example, by injecting the response object to only set cookies/headers but still leave the rest to the framework), you must set the `passthrough` option to `true` in the `@Res({{ '{' }} passthrough: true {{ '}' }})` decorator.
 
@@ -70,7 +70,7 @@ export class CatsController {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 In order to take advantage of `express` typings (as in the `request: Request` parameter example above), install `@types/express` package.
 
@@ -91,9 +91,9 @@ The request object represents the HTTP request and has properties for the reques
 | `@Ip()`                   | `req.ip`                            |
 | `@HostParam()`            | `req.hosts`                         |
 
-::: info HINT
+:::info HINT
 
-To learn how to create your own custom decorators, visit [this](/custom-decorators) chapter.
+To learn how to create your own custom decorators, visit [this](./custom-decorators) chapter.
 
 :::
 
@@ -133,7 +133,7 @@ findAll() {
 
 The `'ab*cd'` route path will match `abcd`, `ab_cd`, `abecd`, and so on. The characters `?`, `+`, `*`, and `()` may be used in a route path, and are subsets of their regular expression counterparts. The hyphen ( `-`) and the dot (`.`) are interpreted literally by string-based paths.
 
-::: warning
+:::warning
 
 A wildcard in the middle of the route is only supported by express.
 
@@ -151,7 +151,7 @@ create() {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 Import `HttpCode` from the `@nestjs/common` package.
 
@@ -171,7 +171,7 @@ create() {
 }
 ```
 
-::: info HINT
+:::info HINT
 
 Import `Header` from the `@nestjs/common` package.
 
@@ -188,7 +188,7 @@ To redirect a response to a specific URL, you can either use a `@Redirect()` dec
 @Redirect('https://nestjs.com', 301)
 ```
 
-::: info HINT
+:::info HINT
 
 Sometimes you may want to determine the HTTP status code or the redirect URL dynamically. Do this by returning an object following the `HttpRedirectResponse` interface (from `@nestjs/common`).
 
@@ -210,7 +210,7 @@ getDocs(@Query('version') version) {
 
 Routes with static paths won't work when you need to accept **dynamic data** as part of the request (e.g., `GET /cats/1` to get cat with id `1`). In order to define routes with parameters, we can add route parameter **tokens** in the path of the route to capture the dynamic value at that position in the request URL. The route parameter token in the `@Get()` decorator example below demonstrates this usage. Route parameters declared in this way can be accessed using the `@Param()` decorator, which should be added to the method signature.
 
-::: info HINT
+:::info HINT
 
 Routes with parameters should be declared after any static paths. This prevents the parameterized paths from intercepting traffic destined for the static paths.
 
@@ -226,7 +226,7 @@ findOne(@Param() params: any): string {
 
 `@Param()` is used to decorate a method parameter (`params` in the example above), and makes the **route** parameters available as properties of that decorated method parameter inside the body of the method. As seen in the code above, we can access the `id` parameter by referencing `params.id`. You can also pass in a particular parameter token to the decorator, and then reference the route parameter directly by name in the method body.
 
-::: info HINT
+:::info HINT
 
 Import `Param` from the `@nestjs/common` package.
 
@@ -253,7 +253,7 @@ export class AdminController {
 }
 ```
 
-::: warning
+:::danger WARNING
 
 Since **Fastify** lacks support for nested routers, when using sub-domain routing, the (default) Express adapter should be used instead.
 
@@ -275,13 +275,13 @@ export class AccountController {
 
 For people coming from different programming language backgrounds, it might be unexpected to learn that in Nest, almost everything is shared across incoming requests. We have a connection pool to the database, singleton services with global state, etc. Remember that Node.js doesn't follow the request/response Multi-Threaded Stateless Model in which every request is processed by a separate thread. Hence, using singleton instances is fully **safe** for our applications.
 
-However, there are edge-cases when request-based lifetime of the controller may be the desired behavior, for instance per-request caching in GraphQL applications, request tracking or multi-tenancy. Learn how to control scopes [here](/fundamentals/injection-scopes).
+However, there are edge-cases when request-based lifetime of the controller may be the desired behavior, for instance per-request caching in GraphQL applications, request tracking or multi-tenancy. Learn how to control scopes [here](../fundamentals/injection-scopes).
 
 ## Asynchronicity
 
 We love modern JavaScript and we know that data extraction is mostly **asynchronous**. That's why Nest supports and works well with `async` functions.
 
-::: info HINT
+:::info HINT
 
 Learn more about `async / await` feature [here](https://kamilmysliwiec.com/typescript-2-1-introduction-async-await)
 
@@ -332,15 +332,15 @@ async create(@Body() createCatDto: CreateCatDto) {
 }
 ```
 
-::: info HINT
+:::info HINT
 
-Our `ValidationPipe` can filter out properties that should not be received by the method handler. In this case, we can whitelist the acceptable properties, and any property not included in the whitelist is automatically stripped from the resulting object. In the `CreateCatDto` example, our whitelist is the `name`, `age`, and `breed` properties. Learn more [here](https://docs.nestjs.com/techniques/validation#stripping-properties).
+Our `ValidationPipe` can filter out properties that should not be received by the method handler. In this case, we can whitelist the acceptable properties, and any property not included in the whitelist is automatically stripped from the resulting object. In the `CreateCatDto` example, our whitelist is the `name`, `age`, and `breed` properties. Learn more [here](../techniques/validation#stripping-properties).
 
 :::
 
 ## Handling errors
 
-There's a separate chapter about handling errors (i.e., working with exceptions) [here](/exception-filters).
+There's a separate chapter about handling errors (i.e., working with exceptions) [here](./exception-filters).
 
 ## Full resource sample
 
@@ -388,9 +388,9 @@ export class CatsController {
 }
 ```
 
-::: info HINT
+:::info HINT
 
-Nest CLI provides a generator (schematic) that automatically generates **all the boilerplate code** to help us avoid doing all of this, and make the developer experience much simpler. Read more about this feature [here](/recipes/crud-generator).
+Nest CLI provides a generator (schematic) that automatically generates **all the boilerplate code** to help us avoid doing all of this, and make the developer experience much simpler. Read more about this feature [here](../recipes/crud-generator).
 
 :::
 
