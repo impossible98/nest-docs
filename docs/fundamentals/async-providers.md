@@ -14,7 +14,7 @@ The syntax for this is to use `async/await` with the `useFactory` syntax. The fa
 }
 ```
 
-::: info HINT
+:::info HINT
 
 Learn more about custom provider syntax [here](./custom-providers).
 
@@ -26,4 +26,4 @@ Asynchronous providers are injected to other components by their tokens, like an
 
 ## Example
 
-[The TypeORM recipe](/recipes/sql-typeorm) has a more substantial example of an asynchronous provider.
+[The TypeORM recipe](../recipes/sql-typeorm) has a more substantial example of an asynchronous provider.
