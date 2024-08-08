@@ -92,6 +92,10 @@ export default defineConfig({
               text: 'Dynamic modules',
               link: '/fundamentals/dynamic-modules',
             },
+            {
+              text: 'Injection scopes',
+              link: '/fundamentals/injection-scopes',
+            },
           ],
         },
         {
