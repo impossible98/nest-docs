@@ -143,6 +143,10 @@ export default defineConfig({
               text: 'Validation',
               link: '/techniques/validation',
             },
+            {
+              text: 'Caching',
+              link: '/techniques/caching',
+            },
           ],
         },
         {
