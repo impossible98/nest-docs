@@ -155,6 +155,10 @@ export default defineConfig({
               text: 'Versioning',
               link: '/techniques/versioning',
             },
+            {
+              text: 'Task Scheduling',
+              link: '/techniques/task-scheduling',
+            },
           ],
         },
         {
