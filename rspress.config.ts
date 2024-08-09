@@ -151,6 +151,10 @@ export default defineConfig({
               text: 'Serialization',
               link: '/techniques/serialization',
             },
+            {
+              text: 'Versioning',
+              link: '/techniques/versioning',
+            },
           ],
         },
         {
