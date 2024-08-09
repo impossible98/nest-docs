@@ -139,6 +139,10 @@ export default defineConfig({
               text: 'Mongo',
               link: '/techniques/mongodb',
             },
+            {
+              text: 'Validation',
+              link: '/techniques/validation',
+            },
           ],
         },
         {
