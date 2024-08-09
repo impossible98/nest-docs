@@ -10,12 +10,12 @@ Versioning allows you to have **different versions** of your controllers or indi
 
 There are 4 types of versioning that are supported:
 
-| Type of Versioning                                                             |                                                                                                                            |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| [`URI Versioning`](../techniques/versioning#uri-versioning-type)               | The version will be passed within the URI of the request (default)                                                         |
-| [`Header Versioning`](../techniques/versioning#header-versioning-type)         | A custom request header will specify the version                                                                           |
-| [`Media Type Versioning`](../techniques/versioning#media-type-versioning-type) | The `Accept` header of the request will specify the version                                                                |
-| [`Custom Versioning`](../techniques/versioning#custom-versioning-type)         | Any aspect of the request may be used to specify the version(s). A custom function is provided to extract said version(s). |
+| Type of Versioning                                     |                                                                                                                            |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| [`URI Versioning`](#uri-versioning-type)               | The version will be passed within the URI of the request (default)                                                         |
+| [`Header Versioning`](#header-versioning-type)         | A custom request header will specify the version                                                                           |
+| [`Media Type Versioning`](#media-type-versioning-type) | The `Accept` header of the request will specify the version                                                                |
+| [`Custom Versioning`](#custom-versioning-type)         | Any aspect of the request may be used to specify the version(s). A custom function is provided to extract said version(s). |
 
 ## URI Versioning Type
 
