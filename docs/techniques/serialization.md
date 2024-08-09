@@ -8,7 +8,7 @@ Nest provides a built-in capability to help ensure that these operations can be 
 
 :::info HINT
 
-The serialization does not apply to [StreamableFile](../techniques/streaming-files#streamable-file-class) responses.
+The serialization does not apply to [StreamableFile](./streaming-files#streamable-file-class) responses.
 
 :::
 
