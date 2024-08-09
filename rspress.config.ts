@@ -147,6 +147,10 @@ export default defineConfig({
               text: 'Caching',
               link: '/techniques/caching',
             },
+            {
+              text: 'Serialization',
+              link: '/techniques/serialization',
+            },
           ],
         },
         {
