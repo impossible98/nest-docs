@@ -159,6 +159,10 @@ export default defineConfig({
               text: 'Task Scheduling',
               link: '/techniques/task-scheduling',
             },
+            {
+              text: 'Queues',
+              link: '/techniques/queues',
+            },
           ],
         },
         {
