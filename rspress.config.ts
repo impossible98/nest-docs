@@ -175,6 +175,10 @@ export default defineConfig({
               text: 'Events',
               link: '/techniques/events',
             },
+            {
+              text: 'Compression',
+              link: '/techniques/compression',
+            },
           ],
         },
         {
