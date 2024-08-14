@@ -167,6 +167,10 @@ export default defineConfig({
               text: 'Logging',
               link: '/techniques/logger',
             },
+            {
+              text: 'Cookies',
+              link: '/techniques/cookies',
+            },
           ],
         },
         {
