@@ -191,6 +191,10 @@ export default defineConfig({
               text: 'HTTP module',
               link: '/techniques/http-module',
             },
+            {
+              text: 'Session',
+              link: '/techniques/session',
+            },
           ],
         },
         {
