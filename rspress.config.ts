@@ -171,6 +171,10 @@ export default defineConfig({
               text: 'Cookies',
               link: '/techniques/cookies',
             },
+            {
+              text: 'Events',
+              link: '/techniques/events',
+            },
           ],
         },
         {
