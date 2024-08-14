@@ -199,6 +199,10 @@ export default defineConfig({
               text: 'Model-View-Controller',
               link: '/techniques/mvc',
             },
+            {
+              text: 'Performance (Fastify)',
+              link: '/techniques/performance',
+            },
           ],
         },
         {
