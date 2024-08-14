@@ -210,6 +210,15 @@ export default defineConfig({
           ],
         },
         {
+          text: 'Security',
+          items: [
+            {
+              text: 'Authentication',
+              link: '/security/authentication',
+            },
+          ],
+        },
+        {
           text: 'STANDALONR APPS',
           link: '/standalone-applications',
         },
