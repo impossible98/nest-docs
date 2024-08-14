@@ -195,6 +195,10 @@ export default defineConfig({
               text: 'Session',
               link: '/techniques/session',
             },
+            {
+              text: 'Model-View-Controller',
+              link: '/techniques/mvc',
+            },
           ],
         },
         {
