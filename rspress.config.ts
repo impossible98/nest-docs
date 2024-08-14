@@ -179,6 +179,10 @@ export default defineConfig({
               text: 'Compression',
               link: '/techniques/compression',
             },
+            {
+              text: 'File upload',
+              link: '/techniques/file-upload',
+            },
           ],
         },
         {
