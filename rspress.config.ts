@@ -163,6 +163,10 @@ export default defineConfig({
               text: 'Queues',
               link: '/techniques/queues',
             },
+            {
+              text: 'Logging',
+              link: '/techniques/logger',
+            },
           ],
         },
         {
