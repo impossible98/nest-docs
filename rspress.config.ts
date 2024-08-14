@@ -183,6 +183,10 @@ export default defineConfig({
               text: 'File upload',
               link: '/techniques/file-upload',
             },
+            {
+              text: 'Streaming files',
+              link: '/techniques/streaming-files',
+            },
           ],
         },
         {
