@@ -203,6 +203,10 @@ export default defineConfig({
               text: 'Performance (Fastify)',
               link: '/techniques/performance',
             },
+            {
+              text: 'Server-Sent Events',
+              link: '/techniques/server-sent-events',
+            },
           ],
         },
         {
