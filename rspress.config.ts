@@ -187,6 +187,10 @@ export default defineConfig({
               text: 'Streaming files',
               link: '/techniques/streaming-files',
             },
+            {
+              text: 'HTTP module',
+              link: '/techniques/http-module',
+            },
           ],
         },
         {
