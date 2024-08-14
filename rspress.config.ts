@@ -6,12 +6,13 @@ import { defineConfig } from 'rspress/config';
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'NestJS',
-  description: 'About Nest',
+  description: 'About NestJS',
   icon: '/favicon.png',
   logo: {
     light: '/nest-light-logo.png',
     dark: '/nest-dark-logo.png',
   },
+  logoText: 'NestJS',
   themeConfig: {
     lastUpdated: true,
     socialLinks: [
@@ -22,8 +23,11 @@ export default defineConfig({
       },
     ],
     footer: {
-      message: `Copyright © 2020-${new Date().getFullYear()} My Project, Inc. Built with Rspress`,
+      message:
+        '<p>Copyright © 2020-${new Date().getFullYear()} My Project, Inc. Built with Rspress</p>',
     },
+    hideNavbar: 'auto',
+    enableScrollToTop: true,
     sidebar: {
       '/': [
         {
@@ -32,6 +36,7 @@ export default defineConfig({
         },
         {
           text: 'OVERVIEW',
+          collapsed: true,
           items: [
             {
               text: 'First steps',
@@ -77,6 +82,8 @@ export default defineConfig({
         },
         {
           text: 'FUNDAMENTALS',
+          collapsed: true,
+
           items: [
             {
               text: 'Custom providers',
@@ -126,6 +133,8 @@ export default defineConfig({
         },
         {
           text: 'TECHNIQUES',
+          collapsed: true,
+
           items: [
             {
               text: 'Configuration',
@@ -210,11 +219,17 @@ export default defineConfig({
           ],
         },
         {
-          text: 'Security',
+          text: 'SECURITY',
+          collapsed: true,
+
           items: [
             {
               text: 'Authentication',
               link: '/security/authentication',
+            },
+            {
+              text: 'Authorization',
+              link: '/security/authorization',
             },
           ],
         },
