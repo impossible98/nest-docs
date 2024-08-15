@@ -83,7 +83,6 @@ export default defineConfig({
         {
           text: 'FUNDAMENTALS',
           collapsed: true,
-
           items: [
             {
               text: 'Custom providers',
@@ -134,7 +133,6 @@ export default defineConfig({
         {
           text: 'TECHNIQUES',
           collapsed: true,
-
           items: [
             {
               text: 'Configuration',
@@ -221,7 +219,6 @@ export default defineConfig({
         {
           text: 'SECURITY',
           collapsed: true,
-
           items: [
             {
               text: 'Authentication',
@@ -256,6 +253,16 @@ export default defineConfig({
         {
           text: 'STANDALONR APPS',
           link: '/standalone-applications',
+        },
+        {
+          text: 'OPENAPI',
+          collapsed: true,
+          items: [
+            {
+              text: 'Introduction',
+              link: '/openapi/introduction',
+            },
+          ],
         },
       ],
     },
