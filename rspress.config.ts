@@ -262,6 +262,10 @@ export default defineConfig({
               text: 'Introduction',
               link: '/openapi/introduction',
             },
+            {
+              text: 'Types and parameters',
+              link: '/openapi/types-and-parameters',
+            },
           ],
         },
       ],
