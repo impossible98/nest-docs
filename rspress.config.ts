@@ -239,6 +239,10 @@ export default defineConfig({
               text: 'Helmet',
               link: '/security/helmet',
             },
+            {
+              text: 'CORS',
+              link: '/security/cors',
+            },
           ],
         },
         {
