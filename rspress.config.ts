@@ -235,6 +235,10 @@ export default defineConfig({
               text: 'Encryption and Hashing',
               link: '/security/encryption-and-hashing',
             },
+            {
+              text: 'Helmet',
+              link: '/security/helmet',
+            },
           ],
         },
         {
