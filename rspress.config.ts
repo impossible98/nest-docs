@@ -243,6 +243,10 @@ export default defineConfig({
               text: 'CORS',
               link: '/security/cors',
             },
+            {
+              text: 'CSRF Protection',
+              link: '/security/csrf',
+            },
           ],
         },
         {
