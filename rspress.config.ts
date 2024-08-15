@@ -247,6 +247,10 @@ export default defineConfig({
               text: 'CSRF Protection',
               link: '/security/csrf',
             },
+            {
+              text: 'Rate Limiting',
+              link: '/security/rate-limiting',
+            },
           ],
         },
         {
