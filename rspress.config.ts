@@ -231,6 +231,10 @@ export default defineConfig({
               text: 'Authorization',
               link: '/security/authorization',
             },
+            {
+              text: 'Encryption and Hashing',
+              link: '/security/encryption-and-hashing',
+            },
           ],
         },
         {
