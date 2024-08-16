@@ -289,6 +289,10 @@ export default defineConfig({
               text: 'CLI Plugin',
               link: '/openapi/cli-plugin',
             },
+            {
+              text: 'Other features',
+              link: '/openapi/other-features',
+            },
           ],
         },
       ],
