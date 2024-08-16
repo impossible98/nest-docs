@@ -281,6 +281,10 @@ export default defineConfig({
               text: 'Mapped types',
               link: '/openapi/mapped-types',
             },
+            {
+              text: 'Decorators',
+              link: '/openapi/decorators',
+            },
           ],
         },
       ],
