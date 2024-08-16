@@ -285,6 +285,10 @@ export default defineConfig({
               text: 'Decorators',
               link: '/openapi/decorators',
             },
+            {
+              text: 'CLI Plugin',
+              link: '/openapi/cli-plugin',
+            },
           ],
         },
       ],
