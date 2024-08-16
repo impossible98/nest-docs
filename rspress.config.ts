@@ -277,6 +277,10 @@ export default defineConfig({
               text: 'Security',
               link: '/openapi/security',
             },
+            {
+              text: 'Mapped types',
+              link: '/openapi/mapped-types',
+            },
           ],
         },
       ],
