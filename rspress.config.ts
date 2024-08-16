@@ -293,6 +293,10 @@ export default defineConfig({
               text: 'Other features',
               link: '/openapi/other-features',
             },
+            {
+              text: 'Migration guide',
+              link: '/openapi/migration-guide',
+            },
           ],
         },
       ],
