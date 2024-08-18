@@ -330,6 +330,16 @@ export default defineConfig({
           ],
         },
         {
+          text: 'FAQ',
+          collapsed: true,
+          items: [
+            {
+              text: 'Serverless',
+              link: '/faq/serverless',
+            },
+          ],
+        },
+        {
           text: 'DEVTOOLS',
           collapsed: true,
           items: [
