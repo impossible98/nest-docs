@@ -337,6 +337,10 @@ export default defineConfig({
               text: 'Overview',
               link: '/devtools/overview',
             },
+            {
+              text: 'CI/CD integration',
+              link: '/devtools/ci-cd-integration',
+            },
           ],
         },
       ],
