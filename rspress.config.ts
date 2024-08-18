@@ -277,6 +277,10 @@ export default defineConfig({
               text: 'Interceptors',
               link: '/websockets/interceptors',
             },
+            {
+              text: 'Adapters',
+              link: '/websockets/adapter',
+            },
           ],
         },
         {
