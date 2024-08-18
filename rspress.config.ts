@@ -261,6 +261,10 @@ export default defineConfig({
               text: 'Gateways',
               link: '/websockets/gateways',
             },
+            {
+              text: 'Exception filters',
+              link: '/websockets/exception-filters',
+            },
           ],
         },
         {
