@@ -337,6 +337,10 @@ export default defineConfig({
               text: 'Serverless',
               link: '/faq/serverless',
             },
+            {
+              text: 'HTTP adapter',
+              link: '/faq/http-adapter',
+            },
           ],
         },
         {
