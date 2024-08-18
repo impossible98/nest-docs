@@ -273,6 +273,10 @@ export default defineConfig({
               text: 'Guards',
               link: '/websockets/guards',
             },
+            {
+              text: 'Interceptors',
+              link: '/websockets/interceptors',
+            },
           ],
         },
         {
