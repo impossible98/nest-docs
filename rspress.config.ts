@@ -341,6 +341,10 @@ export default defineConfig({
               text: 'HTTP adapter',
               link: '/faq/http-adapter',
             },
+            {
+              text: 'Keep alive connections',
+              link: '/faq/keep-alive-connections',
+            },
           ],
         },
         {
