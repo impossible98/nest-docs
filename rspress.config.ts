@@ -269,6 +269,10 @@ export default defineConfig({
               text: 'Pipes',
               link: '/websockets/pipes',
             },
+            {
+              text: 'Guards',
+              link: '/websockets/guards',
+            },
           ],
         },
         {
