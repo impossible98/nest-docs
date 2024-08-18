@@ -254,6 +254,16 @@ export default defineConfig({
           ],
         },
         {
+          text: 'WEBSOCKETS',
+          collapsed: true,
+          items: [
+            {
+              text: 'Gateways',
+              link: '/websockets/gateways',
+            },
+          ],
+        },
+        {
           text: 'STANDALONR APPS',
           link: '/standalone-applications',
         },
