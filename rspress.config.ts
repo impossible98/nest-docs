@@ -329,6 +329,16 @@ export default defineConfig({
             },
           ],
         },
+        {
+          text: 'DEVTOOLS',
+          collapsed: true,
+          items: [
+            {
+              text: 'Overview',
+              link: '/devtools/overview',
+            },
+          ],
+        },
       ],
     },
   },
