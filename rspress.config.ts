@@ -265,6 +265,10 @@ export default defineConfig({
               text: 'Exception filters',
               link: '/websockets/exception-filters',
             },
+            {
+              text: 'Pipes',
+              link: '/websockets/pipes',
+            },
           ],
         },
         {
