@@ -401,6 +401,10 @@ export default defineConfig({
               text: 'Nest Commander',
               link: '/recipes/nest-commander',
             },
+            {
+              text: 'Async local storage',
+              link: '/recipes/async-local-storage',
+            },
           ],
         },
         {
