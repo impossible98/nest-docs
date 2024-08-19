@@ -345,6 +345,10 @@ export default defineConfig({
               text: 'Keep alive connections',
               link: '/faq/keep-alive-connections',
             },
+            {
+              text: 'Global prefix',
+              link: '/faq/global-prefix',
+            },
           ],
         },
         {
