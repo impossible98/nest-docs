@@ -349,6 +349,10 @@ export default defineConfig({
               text: 'Global prefix',
               link: '/faq/global-prefix',
             },
+            {
+              text: 'Raw body',
+              link: '/faq/raw-body',
+            },
           ],
         },
         {
