@@ -405,6 +405,10 @@ export default defineConfig({
               text: 'Async local storage',
               link: '/recipes/async-local-storage',
             },
+            {
+              text: 'Automock',
+              link: '/recipes/automock',
+            },
           ],
         },
         {
