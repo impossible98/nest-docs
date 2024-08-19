@@ -341,6 +341,10 @@ export default defineConfig({
               text: 'CRUD generator',
               link: 'recipes/crud-generator',
             },
+            {
+              text: 'SWC (fast compiler)',
+              link: 'recipes/swc',
+            },
           ],
         },
         {
