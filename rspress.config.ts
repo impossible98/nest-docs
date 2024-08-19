@@ -389,6 +389,10 @@ export default defineConfig({
               text: 'Compodoc',
               link: '/recipes/documentation',
             },
+            {
+              text: 'Prisma',
+              link: '/recipes/prisma',
+            },
           ],
         },
         {
