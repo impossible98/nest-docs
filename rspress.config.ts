@@ -373,6 +373,14 @@ export default defineConfig({
               text: 'Router module',
               link: '/recipes/router-module',
             },
+            {
+              text: 'Swagger',
+              link: '/openapi/introduction',
+            },
+            {
+              text: 'Health checks',
+              link: '/recipes/terminus',
+            },
           ],
         },
         {

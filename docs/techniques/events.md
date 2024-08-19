@@ -14,7 +14,7 @@ $ npm i --save @nestjs/event-emitter
 
 Once the installation is complete, import the `EventEmitterModule` into the root `AppModule` and run the `forRoot()` static method as shown below:
 
-```ts
+```ts title="app.module.ts"
 @@filename(app.module)
 import { Module } from '@nestjs/common';
 import { EventEmitterModule } from '@nestjs/event-emitter';
