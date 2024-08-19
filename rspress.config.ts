@@ -369,6 +369,10 @@ export default defineConfig({
               text: 'Sequelize',
               link: '/recipes/sql-sequelize',
             },
+            {
+              text: 'Router module',
+              link: '/recipes/router-module',
+            },
           ],
         },
         {
