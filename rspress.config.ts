@@ -361,6 +361,10 @@ export default defineConfig({
               text: 'HTTPS',
               link: '/faq/multiple-servers',
             },
+            {
+              text: 'Request lifecycle',
+              link: '/faq/request-lifecycle',
+            },
           ],
         },
         {
