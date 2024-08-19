@@ -335,27 +335,31 @@ export default defineConfig({
           items: [
             {
               text: 'REPL',
-              link: 'recipes/repl',
+              link: '/recipes/repl',
             },
             {
               text: 'CRUD generator',
-              link: 'recipes/crud-generator',
+              link: '/recipes/crud-generator',
             },
             {
               text: 'SWC (fast compiler)',
-              link: 'recipes/swc',
+              link: '/recipes/swc',
             },
             {
               text: 'Passport (auth)',
-              link: 'recipes/passport',
+              link: '/recipes/passport',
             },
             {
               text: 'Hot Reload',
-              link: 'recipes/hot-reload',
+              link: '/recipes/hot-reload',
             },
             {
               text: 'MikroORM',
-              link: 'recipes/mikroorm',
+              link: '/recipes/mikroorm',
+            },
+            {
+              text: 'SQL (TypeORM)',
+              link: '/recipes/sql-typeorm',
             },
           ],
         },
