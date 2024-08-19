@@ -295,6 +295,10 @@ export default defineConfig({
               text: 'Overview',
               link: '/cli/overview',
             },
+            {
+              text: 'Workspaces',
+              link: '/cli/monorepo',
+            },
           ],
         },
         {
