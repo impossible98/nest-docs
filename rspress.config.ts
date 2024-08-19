@@ -345,6 +345,10 @@ export default defineConfig({
               text: 'SWC (fast compiler)',
               link: 'recipes/swc',
             },
+            {
+              text: 'Passport (auth)',
+              link: 'recipes/passport',
+            },
           ],
         },
         {
