@@ -365,6 +365,10 @@ export default defineConfig({
               text: 'Request lifecycle',
               link: '/faq/request-lifecycle',
             },
+            {
+              text: 'Common errors',
+              link: '/faq/common-errors',
+            },
           ],
         },
         {
