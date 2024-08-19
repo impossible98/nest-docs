@@ -393,6 +393,10 @@ export default defineConfig({
               text: 'Prisma',
               link: '/recipes/prisma',
             },
+            {
+              text: 'Serve Static',
+              link: '/recipes/serve-static',
+            },
           ],
         },
         {
