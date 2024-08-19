@@ -397,6 +397,10 @@ export default defineConfig({
               text: 'Serve Static',
               link: '/recipes/serve-static',
             },
+            {
+              text: 'Nest Commander',
+              link: '/recipes/nest-commander',
+            },
           ],
         },
         {
