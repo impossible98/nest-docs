@@ -349,6 +349,10 @@ export default defineConfig({
               text: 'Passport (auth)',
               link: 'recipes/passport',
             },
+            {
+              text: 'Hot Reload',
+              link: 'recipes/hot-reload',
+            },
           ],
         },
         {
