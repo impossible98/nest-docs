@@ -350,7 +350,7 @@ export default defineConfig({
               link: '/recipes/passport',
             },
             {
-              text: 'Hot Reload',
+              text: 'Hot reload',
               link: '/recipes/hot-reload',
             },
             {
@@ -358,8 +358,12 @@ export default defineConfig({
               link: '/recipes/mikroorm',
             },
             {
-              text: 'SQL (TypeORM)',
+              text: 'TypeORM',
               link: '/recipes/sql-typeorm',
+            },
+            {
+              text: 'MongoDB',
+              link: '/recipes/mongodb',
             },
           ],
         },
