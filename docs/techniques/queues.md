@@ -491,8 +491,7 @@ $ npm install --save @nestjs/bull bull
 
 Once the installation process is complete, we can import the `BullModule` into the root `AppModule`.
 
-```ts
-@@filename(app.module)
+```ts title="app.module.ts"
 import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bull';
 
@@ -858,8 +857,7 @@ export class AppModule {}
 
 Please note that because your function is being executed in a forked process, Dependency Injection (and IoC container) won't be available. That means that your processor function will need to contain (or create) all instances of external dependencies it needs.
 
-```ts
-@@filename(processor)
+```ts title="processor.ts"
 import { Job, DoneCallback } from 'bull';
 
 export default function (job: Job, cb: DoneCallback) {
