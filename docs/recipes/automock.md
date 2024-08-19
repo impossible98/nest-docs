@@ -8,6 +8,8 @@ of classes. Automock enables you to streamline test development and focus on wri
 
 `Automock` is a third party package and is not managed by the NestJS core team. Please, report any issues found with the library in the [appropriate repository](https://github.com/automock/automock)
 
+:::
+
 ## Introduction
 
 The Dependency Injection (DI) container is a foundational element of the Nest module system, integral to both application
