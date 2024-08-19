@@ -385,6 +385,10 @@ export default defineConfig({
               text: 'CQRS',
               link: '/recipes/cqrs',
             },
+            {
+              text: 'Compodoc',
+              link: '/recipes/documentation',
+            },
           ],
         },
         {
