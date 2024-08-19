@@ -491,18 +491,6 @@ export class ApiConfigService {
     return this.configService.get('AUTH_ENABLED') === 'true';
   }
 }
-@@switch
-@Dependencies(ConfigService)
-@Injectable()
-export class ApiConfigService {
-  constructor(configService) {
-    this.configService = configService;
-  }
-
-  get isAuthEnabled() {
-    return this.configService.get('AUTH_ENABLED') === 'true';
-  }
-}
 ```
 
 Now we can use the getter function as follows:
@@ -511,16 +499,6 @@ Now we can use the getter function as follows:
 @Injectable()
 export class AppService {
   constructor(apiConfigService: ApiConfigService) {
-    if (apiConfigService.isAuthEnabled) {
-      // Authentication is enabled
-    }
-  }
-}
-@@switch
-@Dependencies(ApiConfigService)
-@Injectable()
-export class AppService {
-  constructor(apiConfigService) {
     if (apiConfigService.isAuthEnabled) {
       // Authentication is enabled
     }
