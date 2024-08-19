@@ -353,6 +353,10 @@ export default defineConfig({
               text: 'Hot Reload',
               link: 'recipes/hot-reload',
             },
+            {
+              text: 'MikroORM',
+              link: 'recipes/mikroorm',
+            },
           ],
         },
         {
