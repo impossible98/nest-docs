@@ -357,6 +357,10 @@ export default defineConfig({
               text: 'Hybrid application',
               link: '/faq/hybrid-application',
             },
+            {
+              text: 'HTTPS',
+              link: '/faq/multiple-servers',
+            },
           ],
         },
         {
