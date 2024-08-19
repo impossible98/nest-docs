@@ -307,6 +307,10 @@ export default defineConfig({
               text: 'Usage',
               link: '/cli/usages',
             },
+            {
+              text: 'Scripts',
+              link: '/cli/scripts',
+            },
           ],
         },
         {
