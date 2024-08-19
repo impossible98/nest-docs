@@ -337,6 +337,10 @@ export default defineConfig({
               text: 'REPL',
               link: 'recipes/repl',
             },
+            {
+              text: 'CRUD generator',
+              link: 'recipes/crud-generator',
+            },
           ],
         },
         {
