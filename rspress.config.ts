@@ -284,6 +284,16 @@ export default defineConfig({
           ],
         },
         {
+          text: 'MICROSERVICES',
+          collapsed: true,
+          items: [
+            {
+              text: 'Overview',
+              link: '/microservices/basics',
+            },
+          ],
+        },
+        {
           text: 'STANDALONR APPS',
           link: '/standalone-applications',
         },
