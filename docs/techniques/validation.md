@@ -178,8 +178,7 @@ Alternatively, you can stop the request from processing when non-whitelisted pro
 
 Payloads coming in over the network are plain JavaScript objects. The `ValidationPipe` can automatically transform payloads to be objects typed according to their DTO classes. To enable auto-transformation, set `transform` to `true`. This can be done at a method level:
 
-```ts
-@@filename(cats.controller)
+```ts title="cats.controller.ts"
 @Post()
 @UsePipes(new ValidationPipe({ transform: true }))
 async create(@Body() createCatDto: CreateCatDto) {
