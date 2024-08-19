@@ -381,6 +381,10 @@ export default defineConfig({
               text: 'Health checks',
               link: '/recipes/terminus',
             },
+            {
+              text: 'CQRS',
+              link: '/recipes/cqrs',
+            },
           ],
         },
         {
