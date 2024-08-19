@@ -330,6 +330,16 @@ export default defineConfig({
           ],
         },
         {
+          text: 'RECIPES',
+          collapsed: true,
+          items: [
+            {
+              text: 'REPL',
+              link: 'recipes/repl',
+            },
+          ],
+        },
+        {
           text: 'FAQ',
           collapsed: true,
           items: [
@@ -368,6 +378,10 @@ export default defineConfig({
             {
               text: 'Common errors',
               link: '/faq/common-errors',
+            },
+            {
+              text: 'Examples',
+              link: 'https://github.com/nestjs/nest/tree/master/sample',
             },
           ],
         },
