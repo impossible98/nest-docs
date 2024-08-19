@@ -353,6 +353,10 @@ export default defineConfig({
               text: 'Raw body',
               link: '/faq/raw-body',
             },
+            {
+              text: 'Hybrid application',
+              link: '/faq/hybrid-application',
+            },
           ],
         },
         {
