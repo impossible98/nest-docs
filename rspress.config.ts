@@ -365,6 +365,10 @@ export default defineConfig({
               text: 'MongoDB',
               link: '/recipes/mongodb',
             },
+            {
+              text: 'Sequelize',
+              link: '/recipes/sql-sequelize',
+            },
           ],
         },
         {
