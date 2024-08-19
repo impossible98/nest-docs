@@ -288,6 +288,16 @@ export default defineConfig({
           link: '/standalone-applications',
         },
         {
+          text: 'CLI',
+          collapsed: true,
+          items: [
+            {
+              text: 'Overview',
+              link: '/cli/overview',
+            },
+          ],
+        },
+        {
           text: 'OPENAPI',
           collapsed: true,
           items: [
