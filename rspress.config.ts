@@ -303,6 +303,10 @@ export default defineConfig({
               text: 'Libraries',
               link: '/cli/libraries',
             },
+            {
+              text: 'Usage',
+              link: '/cli/usages',
+            },
           ],
         },
         {
