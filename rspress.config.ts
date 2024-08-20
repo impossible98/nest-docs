@@ -291,6 +291,10 @@ export default defineConfig({
               text: 'Overview',
               link: '/microservices/basics',
             },
+            {
+              text: 'Redis',
+              link: '/microservices/redis',
+            },
           ],
         },
         {
