@@ -299,6 +299,10 @@ export default defineConfig({
               text: 'MQTT',
               link: '/microservices/mqtt',
             },
+            {
+              text: 'NATS',
+              link: '/microservices/nats',
+            },
           ],
         },
         {
