@@ -295,6 +295,10 @@ export default defineConfig({
               text: 'Redis',
               link: '/microservices/redis',
             },
+            {
+              text: 'MQTT',
+              link: '/microservices/mqtt',
+            },
           ],
         },
         {
