@@ -303,6 +303,10 @@ export default defineConfig({
               text: 'NATS',
               link: '/microservices/nats',
             },
+            {
+              text: 'RabbitMQ',
+              link: '/microservices/rabbitmq',
+            },
           ],
         },
         {
