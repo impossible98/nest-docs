@@ -315,6 +315,10 @@ export default defineConfig({
               text: 'gRPC',
               link: '/microservices/grpc',
             },
+            {
+              text: 'Custom transporters',
+              link: '/microservices/custom-transport',
+            },
           ],
         },
         {
