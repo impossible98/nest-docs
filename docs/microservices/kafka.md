@@ -52,8 +52,8 @@ The `options` property is specific to the chosen transporter. The **Kafka** tran
 | `subscribe`        | Subscribe configuration options (read more [here](https://kafka.js.org/docs/consuming#frombeginning))           |
 | `producer`         | Producer configuration options (read more [here](https://kafka.js.org/docs/producing#options))                  |
 | `send`             | Send configuration options (read more [here](https://kafka.js.org/docs/producing#options))                      |
-| `producerOnlyMode` | Feature flag to skip consumer group registration and only act as a producer (boolean)                           |
-| `postfixId`        | Change suffix of clientId value (string)                                                                        |
+| `producerOnlyMode` | Feature flag to skip consumer group registration and only act as a producer (`boolean`)                         |
+| `postfixId`        | Change suffix of clientId value (`string`)                                                                      |
 
 ## Client
 
