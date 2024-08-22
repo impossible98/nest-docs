@@ -323,6 +323,10 @@ export default defineConfig({
               text: 'Exception filters',
               link: '/microservices/exception-filters',
             },
+            {
+              text: 'Pipes',
+              link: '/microservices/pipes',
+            },
           ],
         },
         {
