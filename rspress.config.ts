@@ -327,6 +327,10 @@ export default defineConfig({
               text: 'Pipes',
               link: '/microservices/pipes',
             },
+            {
+              text: 'Guards',
+              link: '/microservices/guards',
+            },
           ],
         },
         {
