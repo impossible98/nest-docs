@@ -319,6 +319,10 @@ export default defineConfig({
               text: 'Custom transporters',
               link: '/microservices/custom-transport',
             },
+            {
+              text: 'Exception filters',
+              link: '/microservices/exception-filters',
+            },
           ],
         },
         {
