@@ -307,6 +307,10 @@ export default defineConfig({
               text: 'RabbitMQ',
               link: '/microservices/rabbitmq',
             },
+            {
+              text: 'Kafka',
+              link: '/microservices/kafka',
+            },
           ],
         },
         {
