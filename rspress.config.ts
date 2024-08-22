@@ -311,6 +311,10 @@ export default defineConfig({
               text: 'Kafka',
               link: '/microservices/kafka',
             },
+            {
+              text: 'gRPC',
+              link: '/microservices/grpc',
+            },
           ],
         },
         {
