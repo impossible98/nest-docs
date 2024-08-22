@@ -331,6 +331,10 @@ export default defineConfig({
               text: 'Guards',
               link: '/microservices/guards',
             },
+            {
+              text: 'Interceptors',
+              link: '/microservices/interceptors',
+            },
           ],
         },
         {
