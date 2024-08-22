@@ -254,6 +254,16 @@ export default defineConfig({
           ],
         },
         {
+          text: 'GRAPHQL',
+          collapsed: true,
+          items: [
+            {
+              text: 'Quick start',
+              link: '/graphql/quick-start',
+            },
+          ],
+        },
+        {
           text: 'WEBSOCKETS',
           collapsed: true,
           items: [
