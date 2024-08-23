@@ -265,6 +265,10 @@ export default defineConfig({
               text: 'Resolvers',
               link: '/graphql/resolvers',
             },
+            {
+              text: 'Mutations',
+              link: '/graphql/mutations',
+            },
           ],
         },
         {
