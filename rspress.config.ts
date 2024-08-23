@@ -269,6 +269,10 @@ export default defineConfig({
               text: 'Mutations',
               link: '/graphql/mutations',
             },
+            {
+              text: 'Subscriptions',
+              link: '/graphql/subscriptions',
+            },
           ],
         },
         {
