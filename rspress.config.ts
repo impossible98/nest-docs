@@ -261,6 +261,10 @@ export default defineConfig({
               text: 'Quick start',
               link: '/graphql/quick-start',
             },
+            {
+              text: 'Resolvers',
+              link: '/graphql/resolvers',
+            },
           ],
         },
         {
