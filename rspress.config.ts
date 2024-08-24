@@ -313,6 +313,10 @@ export default defineConfig({
               text: 'CLI Plugin',
               link: '/graphql/cli-plugin',
             },
+            {
+              text: 'Generating SDL',
+              link: '/graphql/generating-sdl',
+            },
           ],
         },
         {
