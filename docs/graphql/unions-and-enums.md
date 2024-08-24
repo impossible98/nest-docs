@@ -1,8 +1,10 @@
-# Unions
+# Unions and Enums
+
+## Unions
 
 Union types are very similar to interfaces, but they don't get to specify any common fields between the types (read more [here](https://graphql.org/learn/schema/#union-types)). Unions are useful for returning disjoint data types from a single field.
 
-## Code first
+### Code first
 
 To define a GraphQL union type, we must define classes that this union will be composed of. Following the [example](https://www.apollographql.com/docs/apollo-server/schema/unions-interfaces/#union-type) from the Apollo documentation, we'll create two classes. First, `Book`:
 
@@ -90,7 +92,7 @@ export const ResultUnion = createUnionType({
 });
 ```
 
-## Schema first
+### Schema first
 
 To define a union in the schema first approach, simply create a GraphQL union with SDL.
 
@@ -144,14 +146,14 @@ All decorators are exported from the `@nestjs/graphql` package.
 
 :::
 
-# Enums
+## Enums
 
 Enumeration types are a special kind of scalar that is restricted to a particular set of allowed values (read more [here](https://graphql.org/learn/schema/#enumeration-types)). This allows you to:
 
 - validate that any arguments of this type are one of the allowed values
 - communicate through the type system that a field will always be one of a finite set of values
 
-## Code first
+### Code first
 
 When using the code first approach, you define a GraphQL enum type by simply creating a TypeScript enum.
 
@@ -230,7 +232,7 @@ enum AllowedColor {
 }
 ```
 
-## Schema first
+### Schema first
 
 To define an enumerator in the schema first approach, simply create a GraphQL enum with SDL.
 
