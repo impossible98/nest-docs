@@ -273,6 +273,10 @@ export default defineConfig({
               text: 'Subscriptions',
               link: '/graphql/subscriptions',
             },
+            {
+              text: 'Scalars',
+              link: '/graphql/scalars',
+            },
           ],
         },
         {
