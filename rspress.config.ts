@@ -329,6 +329,10 @@ export default defineConfig({
               text: 'Federation',
               link: '/graphql/federation',
             },
+            {
+              text: 'Migration guide',
+              link: '/graphql/migration-guide',
+            },
           ],
         },
         {
