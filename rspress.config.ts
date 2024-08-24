@@ -317,6 +317,10 @@ export default defineConfig({
               text: 'Generating SDL',
               link: '/graphql/generating-sdl',
             },
+            {
+              text: 'Sharing models',
+              link: '/graphql/sharing-models',
+            },
           ],
         },
         {
