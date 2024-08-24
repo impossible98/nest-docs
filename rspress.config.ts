@@ -297,6 +297,10 @@ export default defineConfig({
               text: 'Mapped types',
               link: '/graphql/mapped-types',
             },
+            {
+              text: 'Plugins',
+              link: '/graphql/plugins',
+            },
           ],
         },
         {
