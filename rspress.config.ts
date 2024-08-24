@@ -285,6 +285,10 @@ export default defineConfig({
               text: 'Interfaces',
               link: '/graphql/interfaces',
             },
+            {
+              text: 'Unions and Enums',
+              link: '/graphql/unions-and-enums',
+            },
           ],
         },
         {
