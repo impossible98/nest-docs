@@ -16,7 +16,7 @@ To start the adventure with this library we have to install all required depende
 $ npm install --save mongoose
 ```
 
-The first step we need to do is to establish the connection with our database using `connect()` function. The `connect()` function returns a `Promise`, and therefore we have to create an [async provider](../fundamentals/async-components).
+The first step we need to do is to establish the connection with our database using `connect()` function. The `connect()` function returns a `Promise`, and therefore we have to create an [async provider](../fundamentals/async-providers).
 
 ```ts title="database.providers.ts"
 import * as mongoose from 'mongoose';
