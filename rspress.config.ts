@@ -325,6 +325,10 @@ export default defineConfig({
               text: 'Other features',
               link: '/graphql/other-features',
             },
+            {
+              text: 'Federation',
+              link: '/graphql/federation',
+            },
           ],
         },
         {
