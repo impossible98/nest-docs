@@ -277,6 +277,10 @@ export default defineConfig({
               text: 'Scalars',
               link: '/graphql/scalars',
             },
+            {
+              text: 'Directives',
+              link: '/graphql/directives',
+            },
           ],
         },
         {
