@@ -22,7 +22,7 @@ To start the adventure with this library we have to install all required depende
 $ npm install --save typeorm mysql2
 ```
 
-The first step we need to do is to establish the connection with our database using `new DataSource().initialize()` class imported from the `typeorm` package. The `initialize()` function returns a `Promise`, and therefore we have to create an [async provider](../fundamentals/async-components).
+The first step we need to do is to establish the connection with our database using `new DataSource().initialize()` class imported from the `typeorm` package. The `initialize()` function returns a `Promise`, and therefore we have to create an [async provider](../fundamentals/async-providers).
 
 ```ts title="database.providers.ts"
 import { DataSource } from 'typeorm';
