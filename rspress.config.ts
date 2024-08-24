@@ -309,6 +309,10 @@ export default defineConfig({
               text: 'Extensions',
               link: '/graphql/extensions',
             },
+            {
+              text: 'CLI Plugin',
+              link: '/graphql/cli-plugin',
+            },
           ],
         },
         {
