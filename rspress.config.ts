@@ -321,6 +321,10 @@ export default defineConfig({
               text: 'Sharing models',
               link: '/graphql/sharing-models',
             },
+            {
+              text: 'Other features',
+              link: '/graphql/other-features',
+            },
           ],
         },
         {
