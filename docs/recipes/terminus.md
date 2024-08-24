@@ -173,7 +173,7 @@ check() {
 ## TypeOrm health indicator
 
 Terminus offers the capability to add database checks to your health check. In order to get started with this health indicator, you
-should check out the [Database chapter](../techniques/sql) and make sure your database connection within your application is established.
+should check out the [Database chapter](../techniques/database) and make sure your database connection within your application is established.
 
 :::info HINT
 
