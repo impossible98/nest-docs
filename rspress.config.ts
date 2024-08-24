@@ -289,6 +289,10 @@ export default defineConfig({
               text: 'Unions and Enums',
               link: '/graphql/unions-and-enums',
             },
+            {
+              text: 'Field middleware',
+              link: '/graphql/field-middleware',
+            },
           ],
         },
         {
