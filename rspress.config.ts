@@ -301,6 +301,10 @@ export default defineConfig({
               text: 'Plugins',
               link: '/graphql/plugins',
             },
+            {
+              text: 'Complexity',
+              link: '/graphql/complexity',
+            },
           ],
         },
         {
