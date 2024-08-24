@@ -4,7 +4,7 @@ Providers are a fundamental concept in Nest. Many of the basic Nest classes may 
 
 ![Photo](/imgs/components.webp)
 
-In the previous chapter, we built a simple `CatsController`. Controllers should handle HTTP requests and delegate more complex tasks to **providers**. Providers are plain JavaScript classes that are declared as `providers` in a [module](/modules).
+In the previous chapter, we built a simple `CatsController`. Controllers should handle HTTP requests and delegate more complex tasks to **providers**. Providers are plain JavaScript classes that are declared as `providers` in a [module](./modules).
 
 :::info Hint
 
@@ -92,7 +92,7 @@ Providers normally have a lifetime ("scope") synchronized with the application l
 
 ## Custom providers
 
-Nest has a built-in inversion of control ("IoC") container that resolves relationships between providers. This feature underlies the dependency injection feature described above, but is in fact far more powerful than what we've described so far. There are several ways to define a provider: you can use plain values, classes, and either asynchronous or synchronous factories. More examples are provided [here](../fundamentals/dependency-injection).
+Nest has a built-in inversion of control ("IoC") container that resolves relationships between providers. This feature underlies the dependency injection feature described above, but is in fact far more powerful than what we've described so far. There are several ways to define a provider: you can use plain values, classes, and either asynchronous or synchronous factories. More examples are provided [here](../fundamentals/custom-providers).
 
 ## Optional providers
 
