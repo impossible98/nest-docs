@@ -281,6 +281,10 @@ export default defineConfig({
               text: 'Directives',
               link: '/graphql/directives',
             },
+            {
+              text: 'Interfaces',
+              link: '/graphql/interfaces',
+            },
           ],
         },
         {
