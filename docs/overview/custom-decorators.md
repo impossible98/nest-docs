@@ -53,7 +53,7 @@ async findOne(@User() user: UserEntity) {
 
 ## Passing data
 
-When the behavior of your decorator depends on some conditions, you can use the `data` parameter to pass an argument to the decorator's factory function. One use case for this is a custom decorator that extracts properties from the request object by key. Let's assume, for example, that our [authentication layer](../techniques/authentication#implementing-passport-strategies) validates requests and attaches a user entity to the request object. The user entity for an authenticated request might look like:
+When the behavior of your decorator depends on some conditions, you can use the `data` parameter to pass an argument to the decorator's factory function. One use case for this is a custom decorator that extracts properties from the request object by key. Let's assume, for example, that our [authentication layer](../security/authentication) validates requests and attaches a user entity to the request object. The user entity for an authenticated request might look like:
 
 ```json
 {
