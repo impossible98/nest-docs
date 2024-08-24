@@ -293,6 +293,10 @@ export default defineConfig({
               text: 'Field middleware',
               link: '/graphql/field-middleware',
             },
+            {
+              text: 'Mapped types',
+              link: '/graphql/mapped-types',
+            },
           ],
         },
         {
