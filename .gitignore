@@ -21,6 +21,3 @@ dist-ssr
 *.sln
 *.sw?
 doc_build
-
-# Local Netlify folder
-.netlify

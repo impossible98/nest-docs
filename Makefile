@@ -11,9 +11,6 @@ build: install
 # 启动开发服务器
 dev: install
 	yarn run dev
-# 安装环境
-env:
-	asdf install
 # 格式化代码
 fmt:
 	yarn run format
